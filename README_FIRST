@@ -1,0 +1,12 @@
+Run it:
+bundle exec middleman server
+
+Edit it:
+source/index.md
+
+View it:
+http://localhost:4567/
+
+Build it:
+bundle exec middleman build --clean
+Then copy over to the public directory in staffing_referrals
