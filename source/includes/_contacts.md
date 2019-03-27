@@ -3,7 +3,7 @@
 ## Get All Contacts
 
 ```shell
-curl "https://app.karmacrm.com/api/v2/contacts?columns%5B%5D=first_name&columns%5B%5D=last_name&columns%5B%5D=company_id&columns%5B%5D=lead_status_id&columns%5B%5D=tag_list&page=1&result_type=backbone&report_id=19"
+curl "https://app.karmacrm.com/api/v2/contacts?columns%5B%5D=first_name&columns%5B%5D=last_name&columns%5B%5D=company_id&columns%5B%5D=lead_status_id&columns%5B%5D=tag_list&page=1&report_id=19"
 ```
 
 > The above command returns JSON structured like this:
@@ -64,13 +64,12 @@ Parameter | Default | Description
 --------- | ------- | -----------
 columns[] | | Determines contact details returned in results. (i.e. first_name, last_name, etc)
 page | 1 | Gets a specific page of contacts
-result_type | backbone | Result type
 report_id | 19 | Report Id
 
 
 ## Get a Specific Contact
 ```shell
-curl "https://app.karmacrm.com/api/v3/contacts/10198487?result_type=backbone"
+curl "https://app.karmacrm.com/api/v3/contacts/10198487"
 ```
 
 > The above command returns JSON structured like this:
