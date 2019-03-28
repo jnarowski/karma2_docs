@@ -8,6 +8,7 @@ toc_footers:
   - <a href='https://app.karmacrm.com/'>Sign in to karmaCRM</a>
 
 includes:
+  - authentication
   - contacts
 
 search: true
