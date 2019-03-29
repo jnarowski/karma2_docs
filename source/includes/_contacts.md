@@ -381,13 +381,13 @@ contact[department] | Contact's department,
 contact[industry_id] | ID for contact's industry
 contact[company] | Contact's company object i.e. `{"name":"Company A"}`
 contact[tags] | array of contact's tags i.e. `["development","usa"]`
-contact[addresses] | array of contact's addresses i.e. <br>{<br>&nbsp; "street":"South St",<br>&nbsp; "city":"Chicago",<br>&nbsp; "state":"Illinois",<br>&nbsp; "country":"USA",<br>&nbsp; "postal_code":"60667",<br>&nbsp; "address_type_id": 2<br>}
+contact[addresses] | array of contact's addresses i.e. <br>`{`<br>&nbsp; `"street":"South St",`<br>&nbsp; `"city":"Chicago",`<br>&nbsp; `"state":"Illinois",`<br>&nbsp; `"country":"USA",`<br>&nbsp; `"postal_code":"60667",`<br>&nbsp; `"address_type_id": 2`<br>`}`
 contact[phone_numbers] | array of contact's phone_numbers <br>i.e. `{"number":"+7 902 4321 2123","phone_number_type_id":2}`
 contact[emails] | array of contact's emails <br>i.e. `{"email":"john.smith@example.com","email_type_id":2}`
 contact[social_accounts] | array of contact's social accounts <br>i.e. `{"name":"john_smith","social_account_type_id":1}`
 contact[websites] | array of contact's websites <br>i.e. `{"url":"example.com","website_type_id":1}`
 contact[field_values] | array of contact's custom field values <br> i.e `{"field_id":1,"value":"custom info"}`
-contact[permissions] | array of permission granting access to contact's info i.e.<br>{<br>&nbsp;"accessor_id": 4,<br>&nbsp; "accessor_type": "User",<br>&nbsp; "permission": 1<br>}
+contact[permissions] | array of permission granting access to contact's info i.e.<br>`{`<br>&nbsp; `"accessor_id": 4,`<br>&nbsp; `"accessor_type": "User",`<br>&nbsp; `"permission": 1`<br>}
 
 ## Update a Contact
 
@@ -428,13 +428,13 @@ contact[department] | Contact's department
 contact[industry_id] | ID for contact's industry
 contact[company] | Contact's company object i.e. `{"id":5,"name":"Company A"}`
 contact[tags] | array of contact's tags i.e. `["development","usa"]`
-contact[addresses] | array of contact's addresses i.e. <br>{<br>&nbsp; "id":4,<br>&nbsp; "street":"South St",<br>&nbsp; "city":"Chicago",<br>&nbsp; "state":"Illinois",<br>&nbsp; "country":"USA",<br>&nbsp; "postal_code":"60667",<br>&nbsp; "address_type_id": 2<br>}
+contact[addresses] | array of contact's addresses i.e. <br>`{`<br>&nbsp; `"id":4,`<br>&nbsp; `"street":"South St",`<br>&nbsp; `"city":"Chicago",`<br>&nbsp; `"state":"Illinois",`<br>&nbsp; `"country":"USA",`<br>&nbsp; `"postal_code":"60667",`<br>&nbsp; `"address_type_id": 2`<br>`}`
 contact[phone_numbers] | array of contact's phone_numbers <br>i.e. `{"id":6,"number":"+7 902 4321 2123","phone_number_type_id":2}`
 contact[emails] | array of contact's emails <br>i.e. `{"id":12,"email":"john.smith@example.com","email_type_id":2}`
 contact[social_accounts] | array of contact's social accounts <br>i.e. `{"id":3,"name":"john_smith","social_account_type_id":1}`
 contact[websites] | array of contact's websites <br>i.e. `{"id":4,"url":"example.com","website_type_id":1}`
 contact[field_values] | array of contact's custom field values <br> i.e `{"id":7,"field_id":1,"value":"custom info"}`
-contact[permissions] | array of permission granting access to contact's info i.e.<br>{<br>&nbsp; "id":1,<br>&nbsp; "accessor_id": 4,<br>&nbsp; "accessor_type": "User",<br>&nbsp; "permission": 1<br>}
+contact[permissions] | array of permission granting access to contact's info i.e.<br>`{`<br>&nbsp; `"id":1,`<br>&nbsp; `"accessor_id": 4,`<br>&nbsp; `"accessor_type": "User",`<br>&nbsp; `"permission": 1`<br>`}`
 
 ### Return Codes
 

@@ -222,6 +222,14 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#sign-in" class="toc-h2 toc-link" data-title="Sign in">Sign in</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#contacts" class="toc-h1 toc-link" data-title="Contacts">Contacts</a>
               <ul class="toc-list-h2">
                   <li>
@@ -231,7 +239,13 @@
                     <a href="#get-a-specific-contact" class="toc-h2 toc-link" data-title="Get a Specific Contact">Get a Specific Contact</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-contact" class="toc-h2 toc-link" data-title="Delete a Specific Contact">Delete a Specific Contact</a>
+                    <a href="#create-a-contact" class="toc-h2 toc-link" data-title="Create a Contact">Create a Contact</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-contact" class="toc-h2 toc-link" data-title="Update a Contact">Update a Contact</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-contact" class="toc-h2 toc-link" data-title="Delete a Contact">Delete a Contact</a>
                   </li>
               </ul>
           </li>
@@ -245,7 +259,94 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the KarmaCRM API!</p>
-<h1 id='contacts'>Contacts</h1><h2 id='get-all-contacts'>Get All Contacts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/contacts?columns%5B%5D=first_name&amp;columns%5B%5D=last_name&amp;columns%5B%5D=company_id&amp;columns%5B%5D=lead_status_id&amp;columns%5B%5D=tag_list&amp;page=1&amp;result_type=backbone&amp;report_id=19"</span>
+<h1 id='authentication'>Authentication</h1><h2 id='sign-in'>Sign in</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/accounts/sign_in.json"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"account":{"email":"user@example.com","password":"xyz"}}'</span>
+</code></pre>
+<blockquote>
+<p>Successful sign in response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"activity_churn_started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"activity_churn_stopped_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"business_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-1212"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"clicky_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-11T21:48:46Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"distinct_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52WzU7kkugXcx85DbHtUSeh17LKmf3cfGFNADtzhUX7djXmQxzg4fG4AB9PWVS1vFo4"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_request_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone_carrier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"date_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mm/dd/yy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"default_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone_number_app"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skype"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone_number_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"support_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10794</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"unread_product_updates"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-27T19:33:18Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"use_24h_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"beta"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"api_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oGscoGFsdS54mProUdDz"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_user_role_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"owner"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_user_role_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_user_objective"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_user_dropbox_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4832250</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_user_mixpanel_person_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yq4RvpuQW6SHoHwGa2AEz6YY7fAnQUdrfEMz96vDzkqdb5s5x_TJsx6qdk6Zg8ipv3k"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Unsuccessful sign in response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid email or password."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all contacts.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/accounts/sign_in.json</code></p>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account[email]</td>
+<td>User&#39;s email</td>
+</tr>
+<tr>
+<td>account[password]</td>
+<td>User&#39;s password</td>
+</tr>
+</tbody></table>
+<h1 id='contacts'>Contacts</h1><h2 id='get-all-contacts'>Get All Contacts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&amp;page=3"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -253,181 +354,225 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"results"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"company_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lead_status_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"tag_list"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"class_name"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"note_last_added_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="s2">"/assets/person_thumb.png"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"company"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"emails"</span><span class="p">:[],</span><span class="w">
-      </span><span class="s2">"websites"</span><span class="p">:[],</span><span class="w">
-      </span><span class="s2">"addresses"</span><span class="p">:[]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"company_id"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"department"</span><span class="p">:</span><span class="s2">"Development"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referral_source_id"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"private"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="s2">"developer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"background"</span><span class="p">:</span><span class="s2">"Good developer with 3+ years of experience"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"lead_status_id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"tag_list"</span><span class="p">:</span><span class="s2">"tag1,tag2"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"class_name"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"note_last_added_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="s2">"/assets/person_thumb.png"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"company"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"emails"</span><span class="p">:[],</span><span class="w">
-      </span><span class="s2">"websites"</span><span class="p">:[],</span><span class="w">
-      </span><span class="s2">"addresses"</span><span class="p">:[]</span><span class="w">
+      </span><span class="s2">"lead_process_id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:[</span><span class="s2">"development"</span><span class="p">,</span><span class="s2">"usa"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"company"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Company A"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-03-28T02:45:39Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-03-28T05:07:19Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"emails"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"john.smith@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"secondary_email_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"websites"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"secondary_website_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"phone_numbers"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"+7 902 4321 2123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"addresses"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"country"</span><span class="p">:</span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"Illinois"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"city"</span><span class="p">:</span><span class="s2">"Chicago"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"street"</span><span class="p">:</span><span class="s2">"South St"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="s2">"60667"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"social_accounts"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"john_smith"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"field_values"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"Updated text curl2"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_parent_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"4"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"permissions"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"accessor_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"accessor_type"</span><span class="p">:</span><span class="s2">"User"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"accessor_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"accessor_type"</span><span class="p">:</span><span class="s2">"User"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"filter"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="mi">21</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all contacts.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://app.karmacrm.com/api/v3/contacts</code></p>
+<p><code>GET https://app.karmacrm.com/api/v3/contacts.json</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>columns[]</td>
-<td></td>
-<td>Determines contact details returned in results. (i.e. first_name, last_name, etc)</td>
-</tr>
-<tr>
 <td>page</td>
-<td>1</td>
 <td>Gets a specific page of contacts</td>
 </tr>
 <tr>
-<td>result_type</td>
-<td>backbone</td>
-<td>Result type</td>
-</tr>
-<tr>
-<td>report_id</td>
-<td>19</td>
-<td>Report Id</td>
+<td>api_token</td>
+<td>The token to authenticate request</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-contact'>Get a Specific Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts/10198487?result_type=backbone"</span>
+<h2 id='get-a-specific-contact'>Get a Specific Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts/25.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example Response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">10198487</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Dorothy"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Chesterfield"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"background"</span><span class="p">:</span><span class="s2">"Good developer with 3+ years of experience"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"position"</span><span class="p">:</span><span class="s2">"developer"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="s2">"/assets/person_thumb.png"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="mi">13051</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"referral_source_id"</span><span class="p">:</span><span class="mi">337712</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">35666</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"private"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"engagements_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"Dorothy Chesterfield"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Dorothy Chesterfield"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"class_name"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tag_list"</span><span class="p">:</span><span class="s2">"mastermind"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"department"</span><span class="p">:</span><span class="s2">"Development"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"referral_source_id"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact_status_id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact_stage_id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:[</span><span class="s2">"development"</span><span class="p">,</span><span class="s2">"usa"</span><span class="p">],</span><span class="w">
   </span><span class="s2">"company"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3511195</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Cowan &amp; Kelly"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Company A"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-10-31T18:15:15Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-12-21T17:09:59Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-03-28T02:45:39Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-03-28T05:07:19Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"bucket_ids"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"contact_buckets"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"secondary_emails"</span><span class="p">:[</span><span class="w">
+  </span><span class="s2">"emails"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">8101666</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"dorothy@cox.net"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"secondary_email_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"work"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"john.smith@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"home"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"secondary_websites"</span><span class="p">:[</span><span class="w">
+  </span><span class="s2">"websites"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2947157</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"http://www.cowankelly.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"secondary_website_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"work"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"website_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"phone_numbers"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">8869438</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"858-617-7834"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"primary_item"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"work"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">8869439</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"858-732-1884"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"primary_item"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"home"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"+7 902 4321 2123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"mobile"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"addresses"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">6993304</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"work"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"city"</span><span class="p">:</span><span class="s2">"San Diego"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"street"</span><span class="p">:</span><span class="s2">"469 Outwater Ln"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="s2">"92126"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"address_type"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"position"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"home"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="s2">"Chicago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="s2">"South St"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"Illinois"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="s2">"60667"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"social_accounts"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"custom_field_200336"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">16738768</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"Audience"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"field_parent_id"</span><span class="p">:</span><span class="mi">200336</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">200337</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"custom_field_200340"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">16738769</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"No"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"field_parent_id"</span><span class="p">:</span><span class="mi">200340</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">200342</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"custom_field_200365"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">16738767</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"San Diego"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"field_parent_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">200365</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"permissions"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"social_accounts"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"john_smith"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"field_values"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"Updated text curl2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_parent_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"4"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"permissions"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_type"</span><span class="p">:</span><span class="s2">"User"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_type"</span><span class="p">:</span><span class="s2">"User"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="s2">"relationships"</span><span class="p">:[],</span><span class="w">
   </span><span class="s2">"important_dates"</span><span class="p">:[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific contact.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;</code></p>
+<p><code>GET https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -439,14 +584,226 @@
 <td>ID</td>
 <td>The ID of the contact to retrieve</td>
 </tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
 </tbody></table>
-<h2 id='delete-a-specific-contact'>Delete a Specific Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">" https://app.karmacrm.com/api/v2/contacts/23"</span>
-  -X DELETE
+<h2 id='create-a-contact'>Create a Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/contacts.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"contact":{"first_name":"John","last_name":"Smith","position":"developer","background":"Good developer with 3+ years of experience","contact_stage_id":13,"contact_status_id":13,"referral_source_id":8,"department":"Development","industry_id":null,"company":{"name":"Company A"},"tags":["development","usa"],"addresses":[{"street":"South St","city":"Chicago","state":"Illinois","country":"USA","postal_code":"60667","address_type_id":2}],"phone_numbers":[{"number":"+7 902 4321 2123","phone_number_type_id":2}],"emails":[{"email":"john.smith@example.com","email_type_id":2}],"social_accounts":[{"name":"john_smith","social_account_type_id":1}],"websites":[{"url":"example.com","website_type_id":1}],"field_values":[{"field_id":1,"value":"Updated text"},{"field_parent_id":2,"field_id":4}],"permissions":[{"accessor_id":5,"accessor_type":"User","permission":1}]}}'</span>
 </code></pre>
-<p>This endpoint deletes a specific contact.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE https://app.karmacrm.com/api/v2/contacts/&lt;ID&gt;</code></p>
+<blockquote>
+<p>Successful contact creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"background"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good developer with 3+ years of experience"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"developer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private_notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Development"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"referral_source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"industry_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"development"</span><span class="p">,</span><span class="w"> </span><span class="s2">"usa"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company A"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-28T02: 45: 39Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-28T02: 45: 39Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"website_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+7 902 4321 2123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chicago"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"South St"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60667"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"social_accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john_smith"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"field_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Updated text"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"bucket_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"permission"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Unsuccessful contact creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Validation error"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"contact_status_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"given contact status doesn't exist in organization"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v3/contacts.json</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contact[first_name]</td>
+<td>Contact&#39;s first name</td>
+</tr>
+<tr>
+<td>contact[last_name]</td>
+<td>Contact&#39;s last name</td>
+</tr>
+<tr>
+<td>contact[position]</td>
+<td>Contact&#39;s title,</td>
+</tr>
+<tr>
+<td>contact[background]</td>
+<td>Contact&#39;s background information</td>
+</tr>
+<tr>
+<td>contact[contact_stage_id]</td>
+<td>ID for contact&#39;s stage</td>
+</tr>
+<tr>
+<td>contact[contact_status_id]</td>
+<td>ID for contact&#39;s status</td>
+</tr>
+<tr>
+<td>contact[referral_source_id]</td>
+<td>ID for contact&#39;s referral source</td>
+</tr>
+<tr>
+<td>contact[user_id]</td>
+<td>ID for contact&#39;s assigned user</td>
+</tr>
+<tr>
+<td>contact[department]</td>
+<td>Contact&#39;s department,</td>
+</tr>
+<tr>
+<td>contact[industry_id]</td>
+<td>ID for contact&#39;s industry</td>
+</tr>
+<tr>
+<td>contact[company]</td>
+<td>Contact&#39;s company object i.e. <code>{&quot;name&quot;:&quot;Company A&quot;}</code></td>
+</tr>
+<tr>
+<td>contact[tags]</td>
+<td>array of contact&#39;s tags i.e. <code>[&quot;development&quot;,&quot;usa&quot;]</code></td>
+</tr>
+<tr>
+<td>contact[addresses]</td>
+<td>array of contact&#39;s addresses i.e. <br><code>{</code><br>&nbsp; <code>&quot;street&quot;:&quot;South St&quot;,</code><br>&nbsp; <code>&quot;city&quot;:&quot;Chicago&quot;,</code><br>&nbsp; <code>&quot;state&quot;:&quot;Illinois&quot;,</code><br>&nbsp; <code>&quot;country&quot;:&quot;USA&quot;,</code><br>&nbsp; <code>&quot;postal_code&quot;:&quot;60667&quot;,</code><br>&nbsp; <code>&quot;address_type_id&quot;: 2</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>contact[phone_numbers]</td>
+<td>array of contact&#39;s phone_numbers <br>i.e. <code>{&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2}</code></td>
+</tr>
+<tr>
+<td>contact[emails]</td>
+<td>array of contact&#39;s emails <br>i.e. <code>{&quot;email&quot;:&quot;john.smith@example.com&quot;,&quot;email_type_id&quot;:2}</code></td>
+</tr>
+<tr>
+<td>contact[social_accounts]</td>
+<td>array of contact&#39;s social accounts <br>i.e. <code>{&quot;name&quot;:&quot;john_smith&quot;,&quot;social_account_type_id&quot;:1}</code></td>
+</tr>
+<tr>
+<td>contact[websites]</td>
+<td>array of contact&#39;s websites <br>i.e. <code>{&quot;url&quot;:&quot;example.com&quot;,&quot;website_type_id&quot;:1}</code></td>
+</tr>
+<tr>
+<td>contact[field_values]</td>
+<td>array of contact&#39;s custom field values <br> i.e <code>{&quot;field_id&quot;:1,&quot;value&quot;:&quot;custom info&quot;}</code></td>
+</tr>
+<tr>
+<td>contact[permissions]</td>
+<td>array of permission granting access to contact&#39;s info i.e.<br><code>{</code><br>&nbsp; <code>&quot;accessor_id&quot;: 4,</code><br>&nbsp; <code>&quot;accessor_type&quot;: &quot;User&quot;,</code><br>&nbsp; <code>&quot;permission&quot;: 1</code><br>}</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-contact'>Update a Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/contacts/24.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"contact":{"first_name":"John","last_name":"Smith","background":"Good developer with 3+ years of experience","position":"developer","private_notes":null,"department":"Development","referral_source_id":8,"user_id":4,"industry_id":null,"private":true,"contact_status_id":13,"contact_stage_id":13,"tags":["development","usa"],"company":{"id":5,"name":"Company A"},"emails":[{"id":12,"email":"john.smith@example.com","email_type_id":2}],"websites":[{"id":4,"url":"example.com","website_type_id":1}],"phone_numbers":[{"id":6,"number":"+7 902 4321 2123","phone_number_type_id":2}],"addresses":[{"id":4,"country":"USA","city":"Chicago","street":"South St","postal_code":"60667","address_type_id":2}],"social_accounts":[{"id":3,"name":"john_smith","social_account_type_id":1}],"field_values":[{"id":7,"field_id":1,"value":"Updated text curl2"},{"id":13,"field_id":4,"field_parent_id":2,"value":"4"}],"permissions":[{"id":1,"permission":1,"accessor_id":5,"accessor_type":"User"}]}}'</span>
+</code></pre>
+<p>This endpoint updates a specific contact.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -457,8 +814,135 @@
 <td>ID</td>
 <td>The ID of the contact to delete</td>
 </tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contact[first_name]</td>
+<td>Contact&#39;s first name</td>
+</tr>
+<tr>
+<td>contact[last_name]</td>
+<td>Contact&#39;s last name</td>
+</tr>
+<tr>
+<td>contact[position]</td>
+<td>Contact&#39;s title</td>
+</tr>
+<tr>
+<td>contact[background]</td>
+<td>Contact&#39;s background information</td>
+</tr>
+<tr>
+<td>contact[private_notes]</td>
+<td>Contact&#39;s private notes</td>
+</tr>
+<tr>
+<td>contact[contact_stage_id]</td>
+<td>ID for contact&#39;s stage</td>
+</tr>
+<tr>
+<td>contact[contact_status_id]</td>
+<td>ID for contact&#39;s status</td>
+</tr>
+<tr>
+<td>contact[referral_source_id]</td>
+<td>ID for contact&#39;s referral source</td>
+</tr>
+<tr>
+<td>contact[user_id]</td>
+<td>ID for contact&#39;s user</td>
+</tr>
+<tr>
+<td>contact[department]</td>
+<td>Contact&#39;s department</td>
+</tr>
+<tr>
+<td>contact[industry_id]</td>
+<td>ID for contact&#39;s industry</td>
+</tr>
+<tr>
+<td>contact[company]</td>
+<td>Contact&#39;s company object i.e. <code>{&quot;id&quot;:5,&quot;name&quot;:&quot;Company A&quot;}</code></td>
+</tr>
+<tr>
+<td>contact[tags]</td>
+<td>array of contact&#39;s tags i.e. <code>[&quot;development&quot;,&quot;usa&quot;]</code></td>
+</tr>
+<tr>
+<td>contact[addresses]</td>
+<td>array of contact&#39;s addresses i.e. <br><code>{</code><br>&nbsp; <code>&quot;id&quot;:4,</code><br>&nbsp; <code>&quot;street&quot;:&quot;South St&quot;,</code><br>&nbsp; <code>&quot;city&quot;:&quot;Chicago&quot;,</code><br>&nbsp; <code>&quot;state&quot;:&quot;Illinois&quot;,</code><br>&nbsp; <code>&quot;country&quot;:&quot;USA&quot;,</code><br>&nbsp; <code>&quot;postal_code&quot;:&quot;60667&quot;,</code><br>&nbsp; <code>&quot;address_type_id&quot;: 2</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>contact[phone_numbers]</td>
+<td>array of contact&#39;s phone_numbers <br>i.e. <code>{&quot;id&quot;:6,&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2}</code></td>
+</tr>
+<tr>
+<td>contact[emails]</td>
+<td>array of contact&#39;s emails <br>i.e. <code>{&quot;id&quot;:12,&quot;email&quot;:&quot;john.smith@example.com&quot;,&quot;email_type_id&quot;:2}</code></td>
+</tr>
+<tr>
+<td>contact[social_accounts]</td>
+<td>array of contact&#39;s social accounts <br>i.e. <code>{&quot;id&quot;:3,&quot;name&quot;:&quot;john_smith&quot;,&quot;social_account_type_id&quot;:1}</code></td>
+</tr>
+<tr>
+<td>contact[websites]</td>
+<td>array of contact&#39;s websites <br>i.e. <code>{&quot;id&quot;:4,&quot;url&quot;:&quot;example.com&quot;,&quot;website_type_id&quot;:1}</code></td>
+</tr>
+<tr>
+<td>contact[field_values]</td>
+<td>array of contact&#39;s custom field values <br> i.e <code>{&quot;id&quot;:7,&quot;field_id&quot;:1,&quot;value&quot;:&quot;custom info&quot;}</code></td>
+</tr>
+<tr>
+<td>contact[permissions]</td>
+<td>array of permission granting access to contact&#39;s info i.e.<br><code>{</code><br>&nbsp; <code>&quot;id&quot;:1,</code><br>&nbsp; <code>&quot;accessor_id&quot;: 4,</code><br>&nbsp; <code>&quot;accessor_type&quot;: &quot;User&quot;,</code><br>&nbsp; <code>&quot;permission&quot;: 1</code><br><code>}</code></td>
+</tr>
 </tbody></table>
 <h3 id='return-codes'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-contact'>Delete a Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<p>This endpoint deletes a specific contact.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes-2'>Return Codes</h3>
 <table><thead>
 <tr>
 <th>Code</th>
