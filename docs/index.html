@@ -249,6 +249,17 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#campaign-entries" class="toc-h1 toc-link" data-title="Campaign Entries">Campaign Entries</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#apply-campaign-create-a-campaign-entries" class="toc-h2 toc-link" data-title="Apply Campaign (Create a Campaign Entries)">Apply Campaign (Create a Campaign Entries)</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-a-campaign-entry" class="toc-h2 toc-link" data-title="Cancel a Campaign Entry">Cancel a Campaign Entry</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://app.karmacrm.com/'>Sign in to karmaCRM</a></li>
@@ -943,6 +954,124 @@
 </tr>
 </tbody></table>
 <h3 id='return-codes-2'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h1 id='campaign-entries'>Campaign Entries</h1><h2 id='apply-campaign-create-a-campaign-entries'>Apply Campaign (Create a Campaign Entries)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/campaign_entries/apply?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"campaign_entry":{"record_id":10662866,"record_type":"Contact","campaign_id":"142"}}'</span>
+</code></pre>
+<blockquote>
+<p>Response for successfully applying a campaign:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9646</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"record_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10662866</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_campaign_entry_step_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67223</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02T22:25:05Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02T22:25:05Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"campaign_entry_steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67223</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"activity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"activity_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10419189</span><span class="p">,</span><span class="s2">"
+      campaign_entry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9646</span><span class="p">,</span><span class="s2">"
+      campaign_step_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">719</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67224</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campaign_entry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9646</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campaign_step_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">720</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67225</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campaign_entry_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9646</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campaign_step_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">721</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v3/campaign_entries/apply</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_entry[record_id]</td>
+<td>Record&#39;s ID to apply campaign to</td>
+</tr>
+<tr>
+<td>campaign_entry[record_type]</td>
+<td>Record&#39;s type to apply campaign to (i.e. Contact)</td>
+</tr>
+<tr>
+<td>campaign_entry[campaign_id]</td>
+<td>ID of campaign being applied</td>
+</tr>
+</tbody></table>
+<h2 id='cancel-a-campaign-entry'>Cancel a Campaign Entry</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/campaign_entries/9646/cancel.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"id":9646}'</span>
+</code></pre>
+<p>This endpoint updates a specific contact.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT https://app.karmacrm.com/api/v3/campaign_entries/&lt;ID&gt;/cancel.json</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the campaign entry to cancel</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Campaign entry&#39;s id</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes'>Return Codes</h3>
 <table><thead>
 <tr>
 <th>Code</th>
