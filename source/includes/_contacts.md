@@ -24,8 +24,8 @@ curl "https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&pa
       "private":true,
       "position":"developer",
       "background":"Good developer with 3+ years of experience",
-      "lead_status_id":13,
-      "lead_process_id":13,
+      "contact_status_id":13,
+      "contact_process_id":13,
       "tags":["development","usa"],
       "company":{
         "id":5,
@@ -118,8 +118,8 @@ Parameter | Description
 page | Gets a specific page of contacts
 api_token | The token to authenticate request
 filters[user_id] | Filters contacts by assigned user id
-filters[lead_status_id] | Filters contacts by status id
-filters[lead_process_id] | Filters contacts by stage id
+filters[contact_status_id] | Filters contacts by status id
+filters[contact_process_id] | Filters contacts by stage id
 filters[tag_list] | Filters contacts by tag list (i.e. `eastern,night`)
 sorts[`<FIELD NAME>`] | Sort contacts on a specified field (i.e. `first_name`)<br>in ascending `asc` or descending `desc` order
 
