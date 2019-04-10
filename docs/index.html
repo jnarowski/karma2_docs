@@ -356,7 +356,7 @@
 <td>User&#39;s password</td>
 </tr>
 </tbody></table>
-<h1 id='contacts'>Contacts</h1><h2 id='get-all-contacts'>Get All Contacts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&amp;page=3"</span> <span class="se">\</span>
+<h1 id='contacts'>Contacts</h1><h2 id='get-all-contacts'>Get All Contacts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&amp;page=3&amp;filters%5Blead_process_id%5D=13&amp;sorts%5Bfirst_name%5D=asc"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
@@ -428,7 +428,7 @@
           </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
           </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"Updated text curl2"</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"value for custom text field"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
@@ -474,6 +474,26 @@
 <tr>
 <td>api_token</td>
 <td>The token to authenticate request</td>
+</tr>
+<tr>
+<td>filters[user_id]</td>
+<td>Filters contacts by assigned user id</td>
+</tr>
+<tr>
+<td>filters[lead_status_id]</td>
+<td>Filters contacts by status id</td>
+</tr>
+<tr>
+<td>filters[lead_process_id]</td>
+<td>Filters contacts by stage id</td>
+</tr>
+<tr>
+<td>filters[tag_list]</td>
+<td>Filters contacts by tag list (i.e. <code>eastern,night</code>)</td>
+</tr>
+<tr>
+<td>sorts[<code>&lt;FIELD NAME&gt;</code>]</td>
+<td>Sort contacts on a specified field (i.e. <code>first_name</code>)<br>in ascending <code>asc</code> or descending <code>desc</code> order</td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-contact'>Get a Specific Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts/25.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>

@@ -3,7 +3,7 @@
 ## Get All Contacts
 
 ```shell
-curl "https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&page=3" \
+curl "https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&page=3&filters%5Blead_process_id%5D=13&sorts%5Bfirst_name%5D=asc" \
   -H "Content-Type: application/json"
 ```
 
@@ -76,7 +76,7 @@ curl "https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&pa
           "id":7,
           "field_id":1,
           "field_type_id":5,
-          "value":"Updated text curl2"
+          "value":"value for custom text field"
         },
         {
           "id":13,
@@ -117,6 +117,11 @@ Parameter | Description
 --------- | -----------
 page | Gets a specific page of contacts
 api_token | The token to authenticate request
+filters[user_id] | Filters contacts by assigned user id
+filters[lead_status_id] | Filters contacts by status id
+filters[lead_process_id] | Filters contacts by stage id
+filters[tag_list] | Filters contacts by tag list (i.e. `eastern,night`)
+sorts[`<FIELD NAME>`] | Sort contacts on a specified field (i.e. `first_name`)<br>in ascending `asc` or descending `desc` order
 
 
 ## Get a Specific Contact
