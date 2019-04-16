@@ -11,6 +11,7 @@ includes:
   - authentication
   - contacts
   - campaign_entries
+  - social_account_types
 
 search: true
 ---

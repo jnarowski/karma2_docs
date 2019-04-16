@@ -252,7 +252,7 @@ api_token | The token to authenticate request
 curl "http://app.karmacrm.com/api/v3/contacts.json?api_token=oGscoGFsdS54mProUdDz" \
   -X POST \
   -H "Content-Type: application/json" \
-  -d '{"contact":{"first_name":"John","last_name":"Smith","position":"developer","background":"Good developer with 3+ years of experience","contact_stage_id":13,"contact_status_id":13,"referral_source_id":8,"department":"Development","industry_id":null,"company":{"name":"Company A"},"tags":["development","usa"],"addresses":[{"street":"South St","city":"Chicago","state":"Illinois","country":"USA","postal_code":"60667","address_type_id":2}],"phone_numbers":[{"number":"+7 902 4321 2123","phone_number_type_id":2}],"emails":[{"email":"john.smith@example.com","email_type_id":2}],"social_accounts":[{"name":"john_smith","social_account_type_id":1}],"websites":[{"url":"example.com","website_type_id":1}],"field_values":[{"field_id":1,"value":"Updated text"},{"field_parent_id":2,"field_id":4}],"permissions":[{"accessor_id":5,"accessor_type":"User","permission":1}]}}'
+  -d '{"contact":{"first_name":"John","last_name":"Smith","position":"developer","background":"Good developer with 3+ years of experience","contact_stage_id":13,"contact_status_id":13,"referral_source_id":8,"department":"Development","industry_id":null,"company":{"name":"Company A"},"tags":["development","usa"],"addresses":[{"street":"South St","city":"Chicago","state":"Illinois","country":"USA","postal_code":"60667","address_type_id":2}],"phone_numbers":[{"number":"+7 902 4321 2123","phone_number_type_id":2}],"emails":[{"email":"john.smith@example.com","email_type_id":2}],"social_accounts":[{"name":"john_smith","social_account_type_id":1}],"websites":[{"url":"example.com","website_type_id":1},{"url":"another.com","label":"New Label"}],"field_values":[{"field_id":1,"value":"Updated text"},{"field_parent_id":2,"field_id":4}],"permissions":[{"accessor_id":5,"accessor_type":"User","permission":1}]}}'
 ```
 > Successful contact creation response:
 
@@ -376,22 +376,22 @@ Parameter | Description
 --------- | -----------
 contact[first_name] | Contact's first name
 contact[last_name] | Contact's last name
-contact[position] | Contact's title,
+contact[position] | Contact's title
 contact[background] | Contact's background information
 contact[contact_stage_id] | ID for contact's stage
 contact[contact_status_id] | ID for contact's status
 contact[referral_source_id] | ID for contact's referral source
 contact[user_id] | ID for contact's assigned user
-contact[department] | Contact's department,
+contact[department] | Contact's department
 contact[industry_id] | ID for contact's industry
 contact[company] | Contact's company object i.e. `{"name":"Company A"}`
 contact[tags] | array of contact's tags i.e. `["development","usa"]`
-contact[addresses] | array of contact's addresses i.e. <br>`{`<br>&nbsp; `"street":"South St",`<br>&nbsp; `"city":"Chicago",`<br>&nbsp; `"state":"Illinois",`<br>&nbsp; `"country":"USA",`<br>&nbsp; `"postal_code":"60667",`<br>&nbsp; `"address_type_id": 2`<br>`}`
-contact[phone_numbers] | array of contact's phone_numbers <br>i.e. `{"number":"+7 902 4321 2123","phone_number_type_id":2}`
-contact[emails] | array of contact's emails <br>i.e. `{"email":"john.smith@example.com","email_type_id":2}`
-contact[social_accounts] | array of contact's social accounts <br>i.e. `{"name":"john_smith","social_account_type_id":1}`
-contact[websites] | array of contact's websites <br>i.e. `{"url":"example.com","website_type_id":1}`
-contact[field_values] | array of contact's custom field values <br> i.e `{"field_id":1,"value":"custom info"}`
+contact[addresses] | array of contact's addresses, i.e. <br>`{`<br>&nbsp; `"street":"South St",`<br>&nbsp; `"city":"Chicago",`<br>&nbsp; `"state":"Illinois",`<br>&nbsp; `"country":"USA",`<br>&nbsp; `"postal_code":"60667",`<br>&nbsp; `"address_type_id": 2,`<br>&nbsp; `"label": "New Custom Label",` (optional: adds custom label)<br>`}`
+contact[phone_numbers] | array of contact's phone_numbers, i.e. (with optional custom label)<br> `{"number":"+7 902 4321 2123","phone_number_type_id":2,"label":"New Custom Label"}`
+contact[emails] | array of contact's emails, i.e. (with optional custom label)<br> `{"email":"john.smith@example.com","email_type_id":2,"label":"New Custom Label"}`
+contact[social_accounts] | array of contact's social accounts, i.e.<br> `{"name":"john_smith","social_account_type_id":1}`
+contact[websites] | array of contact's websites, i.e. (with optional custom label)<br> `{"url":"example.com","website_type_id":1,"label":"New Custom Label"}`
+contact[field_values] | array of contact's custom field values, i.e <br>`{"field_id":1,"value":"custom info"}` <br>`{"value":"5","field_id":5,"field_parent_id":2}` (with parent field)
 contact[permissions] | array of permission granting access to contact's info i.e.<br>`{`<br>&nbsp; `"accessor_id": 4,`<br>&nbsp; `"accessor_type": "User",`<br>&nbsp; `"permission": 1`<br>}
 
 ## Update a Contact
@@ -433,13 +433,13 @@ contact[department] | Contact's department
 contact[industry_id] | ID for contact's industry
 contact[company] | Contact's company object i.e. `{"id":5,"name":"Company A"}`
 contact[tags] | array of contact's tags i.e. `["development","usa"]`
-contact[addresses] | array of contact's addresses i.e. <br>`{`<br>&nbsp; `"id":4,`<br>&nbsp; `"street":"South St",`<br>&nbsp; `"city":"Chicago",`<br>&nbsp; `"state":"Illinois",`<br>&nbsp; `"country":"USA",`<br>&nbsp; `"postal_code":"60667",`<br>&nbsp; `"address_type_id": 2`<br>`}`
-contact[phone_numbers] | array of contact's phone_numbers <br>i.e. `{"id":6,"number":"+7 902 4321 2123","phone_number_type_id":2}`
-contact[emails] | array of contact's emails <br>i.e. `{"id":12,"email":"john.smith@example.com","email_type_id":2}`
-contact[social_accounts] | array of contact's social accounts <br>i.e. `{"id":3,"name":"john_smith","social_account_type_id":1}`
-contact[websites] | array of contact's websites <br>i.e. `{"id":4,"url":"example.com","website_type_id":1}`
-contact[field_values] | array of contact's custom field values <br> i.e `{"id":7,"field_id":1,"value":"custom info"}`
-contact[permissions] | array of permission granting access to contact's info i.e.<br>`{`<br>&nbsp; `"id":1,`<br>&nbsp; `"accessor_id": 4,`<br>&nbsp; `"accessor_type": "User",`<br>&nbsp; `"permission": 1`<br>`}`
+contact[addresses] | array of contact's addresses i.e. <br>`{`<br>&nbsp; `"id":4,`<br>&nbsp; `"street":"South St",`<br>&nbsp; `"city":"Chicago",`<br>&nbsp; `"state":"Illinois",`<br>&nbsp; `"country":"USA",`<br>&nbsp; `"postal_code":"60667",`<br>&nbsp; `"address_type_id": 2,`<br>&nbsp; `"label": "New Custom Label",` (optional: adds custom label)<br>&nbsp; `"_destroy": true` (optional: deletes address)<br>`}`<br>
+contact[phone_numbers] | array of contact's phone_numbers, i.e.<br><strong>update:</strong><br> `{"id":6,"number":"+7 902 4321 2123","phone_number_type_id":2}`<br><strong>add new:</strong><br> `{"number":"+7 902 4321 2123","phone_number_type_id":2,"label":"New Custom Label"}`<br><strong>delete:</strong><br> `{"id":7,"number":"+7 902 4321 2123","phone_number_type_id":2, "_destroy":true}`
+contact[emails] | array of contact's emails, i.e.<br><strong>update:</strong><br> `{"id":12,"email":"update.email@example.com","email_type_id":2}`<br><strong>add new:</strong><br> `{"email":"add.email  @example.com","email_type_id":2,"label":"New Label"}`<br><strong>delete:</strong><br> `{"id":14,"email":"delete.email@example.com","email_type_id":2,"_destroy":true}`
+contact[social_accounts] | array of contact's social accounts, i.e.<br><strong>update:</strong><br> `{"id":3,"name":"update name","social_account_type_id":1}`<br><strong>add new:</strong><br> `{name":"new name","social_account_type_id":3}`<br><strong>delete:</strong><br> `{"id":3,"name":"delete name","social_account_type_id":1,"_delete":true}`
+contact[websites] | array of contact's websites, i.e.<br><strong>update:</strong><br> `{"id":4,"url":"update.com","website_type_id":2}`<br><strong>add new:</strong><br> `{"url":"addnew.com","website_type_id":1, 'New Label'}`<br><strong>delete:</strong><br> `{"id":6,"url":"delete.com","website_type_id":1, "_destroy":true}`
+contact[field_values] | array of contact's custom field values, i.e<br><strong>update:</strong><br> `{"id":7,"field_id":1,"value":"update value for text field"}`<br><strong>add/check new (checkbox choice):</strong><br> `{"value":"5","field_id":5,"field_parent_id":2}`<br>
+contact[permissions] | array of permission granting access to contact's info i.e.<br>`{`<br>&nbsp; `"id":1,`<br>&nbsp; `"accessor_id": 4,`<br>&nbsp; `"accessor_type": "User",`<br>&nbsp; `"permission": 1`<br>&nbsp; `"_destroy": true` (optional: deletes permission)<br>`}`
 
 ### Return Codes
 

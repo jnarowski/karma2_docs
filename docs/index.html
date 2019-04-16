@@ -260,6 +260,14 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#social-account-types" class="toc-h1 toc-link" data-title="Social Account Types">Social Account Types</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-social-account-types" class="toc-h2 toc-link" data-title="Get All Social Account Types">Get All Social Account Types</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://app.karmacrm.com/'>Sign in to karmaCRM</a></li>
@@ -623,7 +631,7 @@
 <h2 id='create-a-contact'>Create a Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/contacts.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -d <span class="s1">'{"contact":{"first_name":"John","last_name":"Smith","position":"developer","background":"Good developer with 3+ years of experience","contact_stage_id":13,"contact_status_id":13,"referral_source_id":8,"department":"Development","industry_id":null,"company":{"name":"Company A"},"tags":["development","usa"],"addresses":[{"street":"South St","city":"Chicago","state":"Illinois","country":"USA","postal_code":"60667","address_type_id":2}],"phone_numbers":[{"number":"+7 902 4321 2123","phone_number_type_id":2}],"emails":[{"email":"john.smith@example.com","email_type_id":2}],"social_accounts":[{"name":"john_smith","social_account_type_id":1}],"websites":[{"url":"example.com","website_type_id":1}],"field_values":[{"field_id":1,"value":"Updated text"},{"field_parent_id":2,"field_id":4}],"permissions":[{"accessor_id":5,"accessor_type":"User","permission":1}]}}'</span>
+  -d <span class="s1">'{"contact":{"first_name":"John","last_name":"Smith","position":"developer","background":"Good developer with 3+ years of experience","contact_stage_id":13,"contact_status_id":13,"referral_source_id":8,"department":"Development","industry_id":null,"company":{"name":"Company A"},"tags":["development","usa"],"addresses":[{"street":"South St","city":"Chicago","state":"Illinois","country":"USA","postal_code":"60667","address_type_id":2}],"phone_numbers":[{"number":"+7 902 4321 2123","phone_number_type_id":2}],"emails":[{"email":"john.smith@example.com","email_type_id":2}],"social_accounts":[{"name":"john_smith","social_account_type_id":1}],"websites":[{"url":"example.com","website_type_id":1},{"url":"another.com","label":"New Label"}],"field_values":[{"field_id":1,"value":"Updated text"},{"field_parent_id":2,"field_id":4}],"permissions":[{"accessor_id":5,"accessor_type":"User","permission":1}]}}'</span>
 </code></pre>
 <blockquote>
 <p>Successful contact creation response:</p>
@@ -759,7 +767,7 @@
 </tr>
 <tr>
 <td>contact[position]</td>
-<td>Contact&#39;s title,</td>
+<td>Contact&#39;s title</td>
 </tr>
 <tr>
 <td>contact[background]</td>
@@ -783,7 +791,7 @@
 </tr>
 <tr>
 <td>contact[department]</td>
-<td>Contact&#39;s department,</td>
+<td>Contact&#39;s department</td>
 </tr>
 <tr>
 <td>contact[industry_id]</td>
@@ -799,27 +807,27 @@
 </tr>
 <tr>
 <td>contact[addresses]</td>
-<td>array of contact&#39;s addresses i.e. <br><code>{</code><br>&nbsp; <code>&quot;street&quot;:&quot;South St&quot;,</code><br>&nbsp; <code>&quot;city&quot;:&quot;Chicago&quot;,</code><br>&nbsp; <code>&quot;state&quot;:&quot;Illinois&quot;,</code><br>&nbsp; <code>&quot;country&quot;:&quot;USA&quot;,</code><br>&nbsp; <code>&quot;postal_code&quot;:&quot;60667&quot;,</code><br>&nbsp; <code>&quot;address_type_id&quot;: 2</code><br><code>}</code></td>
+<td>array of contact&#39;s addresses, i.e. <br><code>{</code><br>&nbsp; <code>&quot;street&quot;:&quot;South St&quot;,</code><br>&nbsp; <code>&quot;city&quot;:&quot;Chicago&quot;,</code><br>&nbsp; <code>&quot;state&quot;:&quot;Illinois&quot;,</code><br>&nbsp; <code>&quot;country&quot;:&quot;USA&quot;,</code><br>&nbsp; <code>&quot;postal_code&quot;:&quot;60667&quot;,</code><br>&nbsp; <code>&quot;address_type_id&quot;: 2,</code><br>&nbsp; <code>&quot;label&quot;: &quot;New Custom Label&quot;,</code> (optional: adds custom label)<br><code>}</code></td>
 </tr>
 <tr>
 <td>contact[phone_numbers]</td>
-<td>array of contact&#39;s phone_numbers <br>i.e. <code>{&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2}</code></td>
+<td>array of contact&#39;s phone_numbers, i.e. (with optional custom label)<br> <code>{&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2,&quot;label&quot;:&quot;New Custom Label&quot;}</code></td>
 </tr>
 <tr>
 <td>contact[emails]</td>
-<td>array of contact&#39;s emails <br>i.e. <code>{&quot;email&quot;:&quot;john.smith@example.com&quot;,&quot;email_type_id&quot;:2}</code></td>
+<td>array of contact&#39;s emails, i.e. (with optional custom label)<br> <code>{&quot;email&quot;:&quot;john.smith@example.com&quot;,&quot;email_type_id&quot;:2,&quot;label&quot;:&quot;New Custom Label&quot;}</code></td>
 </tr>
 <tr>
 <td>contact[social_accounts]</td>
-<td>array of contact&#39;s social accounts <br>i.e. <code>{&quot;name&quot;:&quot;john_smith&quot;,&quot;social_account_type_id&quot;:1}</code></td>
+<td>array of contact&#39;s social accounts, i.e.<br> <code>{&quot;name&quot;:&quot;john_smith&quot;,&quot;social_account_type_id&quot;:1}</code></td>
 </tr>
 <tr>
 <td>contact[websites]</td>
-<td>array of contact&#39;s websites <br>i.e. <code>{&quot;url&quot;:&quot;example.com&quot;,&quot;website_type_id&quot;:1}</code></td>
+<td>array of contact&#39;s websites, i.e. (with optional custom label)<br> <code>{&quot;url&quot;:&quot;example.com&quot;,&quot;website_type_id&quot;:1,&quot;label&quot;:&quot;New Custom Label&quot;}</code></td>
 </tr>
 <tr>
 <td>contact[field_values]</td>
-<td>array of contact&#39;s custom field values <br> i.e <code>{&quot;field_id&quot;:1,&quot;value&quot;:&quot;custom info&quot;}</code></td>
+<td>array of contact&#39;s custom field values, i.e <br><code>{&quot;field_id&quot;:1,&quot;value&quot;:&quot;custom info&quot;}</code> <br><code>{&quot;value&quot;:&quot;5&quot;,&quot;field_id&quot;:5,&quot;field_parent_id&quot;:2}</code> (with parent field)</td>
 </tr>
 <tr>
 <td>contact[permissions]</td>
@@ -911,31 +919,31 @@
 </tr>
 <tr>
 <td>contact[addresses]</td>
-<td>array of contact&#39;s addresses i.e. <br><code>{</code><br>&nbsp; <code>&quot;id&quot;:4,</code><br>&nbsp; <code>&quot;street&quot;:&quot;South St&quot;,</code><br>&nbsp; <code>&quot;city&quot;:&quot;Chicago&quot;,</code><br>&nbsp; <code>&quot;state&quot;:&quot;Illinois&quot;,</code><br>&nbsp; <code>&quot;country&quot;:&quot;USA&quot;,</code><br>&nbsp; <code>&quot;postal_code&quot;:&quot;60667&quot;,</code><br>&nbsp; <code>&quot;address_type_id&quot;: 2</code><br><code>}</code></td>
+<td>array of contact&#39;s addresses i.e. <br><code>{</code><br>&nbsp; <code>&quot;id&quot;:4,</code><br>&nbsp; <code>&quot;street&quot;:&quot;South St&quot;,</code><br>&nbsp; <code>&quot;city&quot;:&quot;Chicago&quot;,</code><br>&nbsp; <code>&quot;state&quot;:&quot;Illinois&quot;,</code><br>&nbsp; <code>&quot;country&quot;:&quot;USA&quot;,</code><br>&nbsp; <code>&quot;postal_code&quot;:&quot;60667&quot;,</code><br>&nbsp; <code>&quot;address_type_id&quot;: 2,</code><br>&nbsp; <code>&quot;label&quot;: &quot;New Custom Label&quot;,</code> (optional: adds custom label)<br>&nbsp; <code>&quot;_destroy&quot;: true</code> (optional: deletes address)<br><code>}</code><br></td>
 </tr>
 <tr>
 <td>contact[phone_numbers]</td>
-<td>array of contact&#39;s phone_numbers <br>i.e. <code>{&quot;id&quot;:6,&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2}</code></td>
+<td>array of contact&#39;s phone_numbers, i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:6,&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2}</code><br><strong>add new:</strong><br> <code>{&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2,&quot;label&quot;:&quot;New Custom Label&quot;}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:7,&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2, &quot;_destroy&quot;:true}</code></td>
 </tr>
 <tr>
 <td>contact[emails]</td>
-<td>array of contact&#39;s emails <br>i.e. <code>{&quot;id&quot;:12,&quot;email&quot;:&quot;john.smith@example.com&quot;,&quot;email_type_id&quot;:2}</code></td>
+<td>array of contact&#39;s emails, i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:12,&quot;email&quot;:&quot;update.email@example.com&quot;,&quot;email_type_id&quot;:2}</code><br><strong>add new:</strong><br> <code>{&quot;email&quot;:&quot;add.email  @example.com&quot;,&quot;email_type_id&quot;:2,&quot;label&quot;:&quot;New Label&quot;}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:14,&quot;email&quot;:&quot;delete.email@example.com&quot;,&quot;email_type_id&quot;:2,&quot;_destroy&quot;:true}</code></td>
 </tr>
 <tr>
 <td>contact[social_accounts]</td>
-<td>array of contact&#39;s social accounts <br>i.e. <code>{&quot;id&quot;:3,&quot;name&quot;:&quot;john_smith&quot;,&quot;social_account_type_id&quot;:1}</code></td>
+<td>array of contact&#39;s social accounts, i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:3,&quot;name&quot;:&quot;update name&quot;,&quot;social_account_type_id&quot;:1}</code><br><strong>add new:</strong><br> <code>{name&quot;:&quot;new name&quot;,&quot;social_account_type_id&quot;:3}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:3,&quot;name&quot;:&quot;delete name&quot;,&quot;social_account_type_id&quot;:1,&quot;_delete&quot;:true}</code></td>
 </tr>
 <tr>
 <td>contact[websites]</td>
-<td>array of contact&#39;s websites <br>i.e. <code>{&quot;id&quot;:4,&quot;url&quot;:&quot;example.com&quot;,&quot;website_type_id&quot;:1}</code></td>
+<td>array of contact&#39;s websites, i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:4,&quot;url&quot;:&quot;update.com&quot;,&quot;website_type_id&quot;:2}</code><br><strong>add new:</strong><br> <code>{&quot;url&quot;:&quot;addnew.com&quot;,&quot;website_type_id&quot;:1, &#39;New Label&#39;}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:6,&quot;url&quot;:&quot;delete.com&quot;,&quot;website_type_id&quot;:1, &quot;_destroy&quot;:true}</code></td>
 </tr>
 <tr>
 <td>contact[field_values]</td>
-<td>array of contact&#39;s custom field values <br> i.e <code>{&quot;id&quot;:7,&quot;field_id&quot;:1,&quot;value&quot;:&quot;custom info&quot;}</code></td>
+<td>array of contact&#39;s custom field values, i.e<br><strong>update:</strong><br> <code>{&quot;id&quot;:7,&quot;field_id&quot;:1,&quot;value&quot;:&quot;update value for text field&quot;}</code><br><strong>add/check new (checkbox choice):</strong><br> <code>{&quot;value&quot;:&quot;5&quot;,&quot;field_id&quot;:5,&quot;field_parent_id&quot;:2}</code><br></td>
 </tr>
 <tr>
 <td>contact[permissions]</td>
-<td>array of permission granting access to contact&#39;s info i.e.<br><code>{</code><br>&nbsp; <code>&quot;id&quot;:1,</code><br>&nbsp; <code>&quot;accessor_id&quot;: 4,</code><br>&nbsp; <code>&quot;accessor_type&quot;: &quot;User&quot;,</code><br>&nbsp; <code>&quot;permission&quot;: 1</code><br><code>}</code></td>
+<td>array of permission granting access to contact&#39;s info i.e.<br><code>{</code><br>&nbsp; <code>&quot;id&quot;:1,</code><br>&nbsp; <code>&quot;accessor_id&quot;: 4,</code><br>&nbsp; <code>&quot;accessor_type&quot;: &quot;User&quot;,</code><br>&nbsp; <code>&quot;permission&quot;: 1</code><br>&nbsp; <code>&quot;_destroy&quot;: true</code> (optional: deletes permission)<br><code>}</code></td>
 </tr>
 </tbody></table>
 <h3 id='return-codes'>Return Codes</h3>
@@ -1101,6 +1109,214 @@
 <tr>
 <td>204</td>
 <td>No content</td>
+</tr>
+</tbody></table>
+<h1 id='social-account-types'>Social Account Types</h1><h2 id='get-all-social-account-types'>Get All Social Account Types</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/settings/social_account_types.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AngelList"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"angellist"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Twitter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Facebook"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LinkedIn"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gravatar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gravatar"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google Plus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google_plus"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AOLChat"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aOLChat"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bithucket"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bithucket"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DevianArt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Digg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flickr"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Friendster"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Github"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"github"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gravatar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gravatar"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Instagram"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instagram"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Imdb"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lastfm"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">56</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Livejournal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">58</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meetup"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Myspace"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pandora"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Picasa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pinterest"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quora"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reddit"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scribd"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skype"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skype"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soundcloud"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stackoverflow"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tumblr"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">96</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vimeo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">98</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wordpress"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yelp"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yelp"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YouTube"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"youtube"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1552263193</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all social account types.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v2/settings/social_account_types.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
 </tr>
 </tbody></table>
 
