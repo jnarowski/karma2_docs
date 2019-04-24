@@ -250,6 +250,47 @@
               </ul>
           </li>
           <li>
+            <a href="#custom-fields" class="toc-h1 toc-link" data-title="Custom Fields">Custom Fields</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#custom-text-field-create" class="toc-h2 toc-link" data-title="Custom Text Field - Create">Custom Text Field - Create</a>
+                  </li>
+                  <li>
+                    <a href="#custom-text-field-update" class="toc-h2 toc-link" data-title="Custom Text Field - Update">Custom Text Field - Update</a>
+                  </li>
+                  <li>
+                    <a href="#custom-checkbox-create" class="toc-h2 toc-link" data-title="Custom Checkbox - Create">Custom Checkbox - Create</a>
+                  </li>
+                  <li>
+                    <a href="#custom-checkbox-update" class="toc-h2 toc-link" data-title="Custom Checkbox - Update">Custom Checkbox - Update</a>
+                  </li>
+                  <li>
+                    <a href="#custom-date-field-create" class="toc-h2 toc-link" data-title="Custom Date Field - Create">Custom Date Field - Create</a>
+                  </li>
+                  <li>
+                    <a href="#custom-date-field-update" class="toc-h2 toc-link" data-title="Custom Date Field - Update">Custom Date Field - Update</a>
+                  </li>
+                  <li>
+                    <a href="#custom-text-area-field-create" class="toc-h2 toc-link" data-title="Custom Text Area Field - Create">Custom Text Area Field - Create</a>
+                  </li>
+                  <li>
+                    <a href="#custom-text-area-field-update" class="toc-h2 toc-link" data-title="Custom Text Area Field - Update">Custom Text Area Field - Update</a>
+                  </li>
+                  <li>
+                    <a href="#custom-currency-field-create" class="toc-h2 toc-link" data-title="Custom Currency Field - Create">Custom Currency Field - Create</a>
+                  </li>
+                  <li>
+                    <a href="#custom-currency-field-update" class="toc-h2 toc-link" data-title="Custom Currency Field - Update">Custom Currency Field - Update</a>
+                  </li>
+                  <li>
+                    <a href="#custom-select-field-create" class="toc-h2 toc-link" data-title="Custom Select Field - Create">Custom Select Field - Create</a>
+                  </li>
+                  <li>
+                    <a href="#custom-select-field-update" class="toc-h2 toc-link" data-title="Custom Select Field - Update">Custom Select Field - Update</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#campaign-entries" class="toc-h1 toc-link" data-title="Campaign Entries">Campaign Entries</a>
               <ul class="toc-list-h2">
                   <li>
@@ -991,6 +1032,622 @@
 <tr>
 <td>204</td>
 <td>No content</td>
+</tr>
+</tbody></table>
+<h1 id='custom-fields'>Custom Fields</h1><h2 id='custom-text-field-create'>Custom Text Field - Create</h2>
+<p>Create a resource with a custom text field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "field_id": 1,
+        "value": "custom text value"
+      },
+      ...
+    ]
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response object</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{
+  "id": 38,
+  ...
+  "field_values": [
+    ...
+    {
+      "id": 45,
+      "field_id": 1,
+      "field_type_id": 5,
+      "field_parent_id": null,
+      "value": "custom text value"
+    },
+    ...
+  ],
+  ...
+}
+</code></pre><h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_id</td>
+<td>id of custom text field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom text field</td>
+</tr>
+</tbody></table>
+<h2 id='custom-text-field-update'>Custom Text Field - Update</h2>
+<p>Update a resource with a custom text field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "id": 45,
+        "value": "custom text value update",
+        "field_id": 1
+      },
+      ...
+    ],
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre><h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of custom text value</td>
+</tr>
+<tr>
+<td>field_id</td>
+<td>id of custom text field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom text field</td>
+</tr>
+</tbody></table>
+<h2 id='custom-checkbox-create'>Custom Checkbox - Create</h2>
+<p>Create a resource with a custom checkbox</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "value": "4",
+        "field_id": 4,
+        "field_parent_id": 2
+      },
+      {
+        "value": "5",
+        "field_id": 5,
+        "field_parent_id": 2
+      ,
+      ...
+    ]
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response object</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{
+  "id": 38,
+  ...
+  "field_values": [
+    ...
+    {
+      "id": 46,
+      "field_id": 4,
+      "field_type_id": 3,
+      "field_parent_id": 2,
+      "value": 4
+    },
+    {
+      "id": 47,
+      "field_id": 5,
+      "field_type_id": 3,
+      "field_parent_id": 2,
+      "value": 5
+    },
+    ...
+  ],
+  ...
+}
+</code></pre><h3 id='request-payload-3'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_id</td>
+<td>id of custom checkbox selection</td>
+</tr>
+<tr>
+<td>field_parent_id</td>
+<td>id of custom checkbox field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom checkbox selection</td>
+</tr>
+</tbody></table>
+<h2 id='custom-checkbox-update'>Custom Checkbox - Update</h2>
+<p>Update a resource with a custom checkbox</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "value": "3",
+        "field_id": 3,
+        "field_parent_id": 2
+      },
+      {
+        "id": 46,
+        "value": "4",
+        "field_id": 1,
+        "field_parent_id": 2,
+        "_destroy": true
+      },
+      {
+        "id": 47,
+        "value":" 5",
+        "field_id": 5,
+        "field_parent_id": 2
+      },
+      ...
+    ],
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre><h3 id='request-payload-4'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of checkbox field record</td>
+</tr>
+<tr>
+<td>field_id</td>
+<td>id of custom checkbox selection</td>
+</tr>
+<tr>
+<td>field_parent_id</td>
+<td>id of custom checkbox field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom checkbox selection</td>
+</tr>
+<tr>
+<td>_destroy</td>
+<td>boolean to uncheck checkbox selection</td>
+</tr>
+</tbody></table>
+<h2 id='custom-date-field-create'>Custom Date Field - Create</h2>
+<p>Create a resource with a custom text field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "field_id": 6,
+        "value": "2019-04-24"
+      },
+      ...
+    ]
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response object</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{
+  "id": 38,
+  ...
+  "field_values": [
+    ...
+    {
+      "id": 48,
+      "field_id": 6,
+      "field_type_id": 7,
+      "field_parent_id": null,
+      "value": "2019-04-24"
+    },
+    ...
+  ],
+  ...
+}
+</code></pre><h3 id='request-payload-5'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_id</td>
+<td>id of custom date field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom date field</td>
+</tr>
+</tbody></table>
+<h2 id='custom-date-field-update'>Custom Date Field - Update</h2>
+<p>Update a resource with a custom date field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "id": 48,
+        "value": "2019-04-25",
+        "field_id": 6
+      },
+      ...
+    ],
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre><h3 id='request-payload-6'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of custom date record</td>
+</tr>
+<tr>
+<td>field_id</td>
+<td>id of custom date field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom date field</td>
+</tr>
+</tbody></table>
+<h2 id='custom-text-area-field-create'>Custom Text Area Field - Create</h2>
+<p>Create a resource with a custom text area field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "field_id": 15,
+        "value": "custom text area value"
+      },
+      ...
+    ]
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response object</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{
+  "id": 38,
+  ...
+  "field_values": [
+    ...
+    {
+      "id": 49,
+      "field_id": 15,
+      "field_type_id": 4,
+      "field_parent_id": null,
+      "value": "custom text area value"
+    },
+    ...
+  ],
+  ...
+}
+</code></pre><h3 id='request-payload-7'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_id</td>
+<td>id of custom text area field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom text area field</td>
+</tr>
+</tbody></table>
+<h2 id='custom-text-area-field-update'>Custom Text Area Field - Update</h2>
+<p>Update a resource with a custom text area field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "id": 49,
+        "value": "custom text area value update",
+        "field_id": 15
+      },
+      ...
+    ],
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre><h3 id='request-payload-8'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of custom text area record</td>
+</tr>
+<tr>
+<td>field_id</td>
+<td>id of custom text area field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom text area field</td>
+</tr>
+</tbody></table>
+<h2 id='custom-currency-field-create'>Custom Currency Field - Create</h2>
+<p>Create a resource with a custom currency field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values":[
+      ...
+      {
+        "value": "13",
+        "field_id": 17
+      },
+      ...
+    ]
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response object</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{
+  "id": 38,
+  ...
+  "field_values": [
+    ...
+    {
+      "id": 50,
+      "field_id": 17,
+      "field_type_id": 8,
+      "field_parent_id": null,
+      "value": "13"
+    },
+    ...
+  ],
+  ...
+}
+</code></pre><h3 id='request-payload-9'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_id</td>
+<td>id of custom currency field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom currency field</td>
+</tr>
+</tbody></table>
+<h2 id='custom-currency-field-update'>Custom Currency Field - Update</h2>
+<p>Update a resource with a custom currency field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "id": 50,
+        "value": "15",
+        "field_id": 17
+      }
+      ...
+    ],
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre><h3 id='request-payload-10'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of custom currency record</td>
+</tr>
+<tr>
+<td>field_id</td>
+<td>id of custom currency field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom currency field</td>
+</tr>
+</tbody></table>
+<h2 id='custom-select-field-create'>Custom Select Field - Create</h2>
+<p>Create a resource with a custom select field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values":[
+      ...
+      {
+        "value": "13",
+        "field_id": 13,
+        "field_parent_id": 11
+      },
+      ...
+    ]
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response object</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{
+  "id": 38,
+  ...
+  "field_values": [
+    ...
+    {
+      "id": 51,
+      "field_id": 13,
+      "field_type_id": 2,
+      "field_parent_id": 11,
+      "value": 13
+    },
+    ...
+  ],
+  ...
+}
+</code></pre><h3 id='request-payload-11'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_id</td>
+<td>id of custom select selection</td>
+</tr>
+<tr>
+<td>field_parent_id</td>
+<td>id of custom select field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom checkbox selection</td>
+</tr>
+</tbody></table>
+<h2 id='custom-select-field-update'>Custom Select Field - Update</h2>
+<p>Update a resource with a custom select field</p>
+<pre class="highlight plaintext"><code>{
+  "contact" : {
+    ...
+    "field_values": [
+      ...
+      {
+        "id": 51,
+        "value": "12",
+        "field_id": 12,
+        "field_parent_id": 11
+      }
+      ...
+    ],
+    ...
+  }
+}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>204 No Content
+</code></pre><h3 id='request-payload-12'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of custom select record</td>
+</tr>
+<tr>
+<td>field_id</td>
+<td>id of custom select selection</td>
+</tr>
+<tr>
+<td>field_parent_id</td>
+<td>id of custom select field</td>
+</tr>
+<tr>
+<td>value</td>
+<td>value for custom checkbox selection</td>
+</tr>
+<tr>
+<td>_destroy</td>
+<td>boolean to unselect a selection</td>
 </tr>
 </tbody></table>
 <h1 id='campaign-entries'>Campaign Entries</h1><h2 id='apply-campaign-create-a-campaign-entries'>Apply Campaign (Create a Campaign Entries)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/campaign_entries/apply?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>

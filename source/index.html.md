@@ -10,6 +10,7 @@ toc_footers:
 includes:
   - authentication
   - contacts
+  - custom_fields
   - campaign_entries
   - social_account_types
 
