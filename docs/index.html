@@ -405,7 +405,7 @@
 <td>User&#39;s password</td>
 </tr>
 </tbody></table>
-<h1 id='contacts'>Contacts</h1><h2 id='get-all-contacts'>Get All Contacts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&amp;page=3&amp;filters%5Blead_process_id%5D=13&amp;sorts%5Bfirst_name%5D=asc"</span> <span class="se">\</span>
+<h1 id='contacts'>Contacts</h1><h2 id='get-all-contacts'>Get All Contacts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&amp;page=3&amp;filters%5Bcontact_stage_id%5D=13&amp;sorts%5Bfirst_name%5D=asc"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
@@ -426,7 +426,7 @@
       </span><span class="s2">"position"</span><span class="p">:</span><span class="s2">"developer"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"background"</span><span class="p">:</span><span class="s2">"Good developer with 3+ years of experience"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"contact_status_id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"contact_process_id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_stage_id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
       </span><span class="s2">"tags"</span><span class="p">:[</span><span class="s2">"development"</span><span class="p">,</span><span class="s2">"usa"</span><span class="p">],</span><span class="w">
       </span><span class="s2">"company"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -533,7 +533,7 @@
 <td>Filters contacts by status id</td>
 </tr>
 <tr>
-<td>filters[contact_process_id]</td>
+<td>filters[contact_stage_id]</td>
 <td>Filters contacts by stage id</td>
 </tr>
 <tr>
