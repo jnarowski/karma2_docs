@@ -250,6 +250,22 @@
               </ul>
           </li>
           <li>
+            <a href="#activities" class="toc-h1 toc-link" data-title="Activities">Activities</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-related-activities-for-a-contact" class="toc-h2 toc-link" data-title="Get Related Activities (for a Contact)">Get Related Activities (for a Contact)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#histories" class="toc-h1 toc-link" data-title="Histories">Histories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-related-histories-for-a-contact" class="toc-h2 toc-link" data-title="Get Related Histories (for a Contact)">Get Related Histories (for a Contact)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#custom-fields" class="toc-h1 toc-link" data-title="Custom Fields">Custom Fields</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1032,6 +1048,197 @@
 <tr>
 <td>204</td>
 <td>No content</td>
+</tr>
+</tbody></table>
+<h1 id='activities'>Activities</h1><h2 id='get-related-activities-for-a-contact'>Get Related Activities (for a Contact)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/activities/related.json?api_token=oGscoGFsdS54mProUdDz&amp;record_type=Contact&amp;record_id=22&amp;per_page=100&amp;page=1"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task from Template"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"todo_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"todo_template_step_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T21:00:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T16:50:56Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task Template"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">91</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"participater_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"participater_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"reminders"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reminder_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"time_increment"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minutes"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task from Campaign"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"campaign_step_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T06:00:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T16:51:08Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task Campaign"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">93</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"participater_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"participater_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all activities related to a contact.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/activities/related.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Gets a specific page of contacts</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Number of contacts per page</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+<tr>
+<td>record_type</td>
+<td>Record Type (i.e. <code>Contact</code>)</td>
+</tr>
+<tr>
+<td>record_id</td>
+<td>Record ID</td>
+</tr>
+</tbody></table>
+<h1 id='histories'>Histories</h1><h2 id='get-related-histories-for-a-contact'>Get Related Histories (for a Contact)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/histories/related?api_token=oGscoGFsdS54mProUdDz&amp;record_type=Contact&amp;record_id=22&amp;per_page=100&amp;page=1"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">137</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T16:50:56Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task Step"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T16:57:55Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"record"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;div&gt;testing&lt;/div&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"note_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"local email test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"incoming"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-22T18:49:07Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"record"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
+      </span><span class="p">},</span><span class="s2">"external"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all histories related to a contact.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/activities/related.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Gets a specific page of contacts</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Number of contacts per page</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+<tr>
+<td>record_type</td>
+<td>Record Type (i.e. <code>Contact</code>)</td>
+</tr>
+<tr>
+<td>record_id</td>
+<td>Record ID</td>
 </tr>
 </tbody></table>
 <h1 id='custom-fields'>Custom Fields</h1><h2 id='custom-text-field-create'>Custom Text Field - Create</h2>
