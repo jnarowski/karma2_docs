@@ -253,6 +253,9 @@
             <a href="#activities" class="toc-h1 toc-link" data-title="Activities">Activities</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#get-all-activities" class="toc-h2 toc-link" data-title="Get All Activities">Get All Activities</a>
+                  </li>
+                  <li>
                     <a href="#get-related-activities-for-a-contact" class="toc-h2 toc-link" data-title="Get Related Activities (for a Contact)">Get Related Activities (for a Contact)</a>
                   </li>
               </ul>
@@ -260,6 +263,9 @@
           <li>
             <a href="#histories" class="toc-h1 toc-link" data-title="Histories">Histories</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-histories" class="toc-h2 toc-link" data-title="Get All Histories">Get All Histories</a>
+                  </li>
                   <li>
                     <a href="#get-related-histories-for-a-contact" class="toc-h2 toc-link" data-title="Get Related Histories (for a Contact)">Get Related Histories (for a Contact)</a>
                   </li>
@@ -1050,7 +1056,82 @@
 <td>No content</td>
 </tr>
 </tbody></table>
-<h1 id='activities'>Activities</h1><h2 id='get-related-activities-for-a-contact'>Get Related Activities (for a Contact)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/activities/related.json?api_token=oGscoGFsdS54mProUdDz&amp;record_type=Contact&amp;record_id=22&amp;per_page=100&amp;page=1"</span> <span class="se">\</span>
+<h1 id='activities'>Activities</h1><h2 id='get-all-activities'>Get All Activities</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"
+https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&amp;per_page=100&amp;page=1&amp;filters%5Bdue_category%5D=overdue&amp;filters%5Btodo_category_id%5D%5Bvalues%5D%5B%5D=21&amp;filters%5Buser_id%5D=mine&amp;columns%5B%5D=all_day&amp;columns%5B%5D=body&amp;columns%5B%5D=complete&amp;columns%5B%5D=end_at&amp;columns%5B%5D=due_at"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meeting"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"todo_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-12T00:00:00Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task Step"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"todo_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@email.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T21:00:00Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all activities related to a contact.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/activities/related.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Gets a specific page of contacts</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Number of contacts per page</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+<tr>
+<td>filters[due_category]</td>
+<td>Filter based on &quot;due_at&quot; date i.e. <code>overdue</code>, <code>today_and_overdue</code>, <code>today</code>, <code>this_week</code>, <code>upcoming</code></td>
+</tr>
+<tr>
+<td>filters[todo_category_id][values][]</td>
+<td>Filter based on todo category ids</td>
+</tr>
+<tr>
+<td>filters[user_id]</td>
+<td>Filter based &quot;user_id&quot; i.e, <code>mine</code>, or user_id</td>
+</tr>
+<tr>
+<td>sorts[due_at]</td>
+<td>Sort by &quot;due_at&quot; date <code>asc</code> and <code>desc</code></td>
+</tr>
+<tr>
+<td>columns[]</td>
+<td>Include columns in results i.e. <code>all_day</code>, <code>body</code>, <code>complete</code>, <code>end_at</code>, etc</td>
+</tr>
+</tbody></table>
+<h2 id='get-related-activities-for-a-contact'>Get Related Activities (for a Contact)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/activities/related.json?api_token=oGscoGFsdS54mProUdDz&amp;record_type=Contact&amp;record_id=22&amp;per_page=100&amp;page=1"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
@@ -1109,9 +1190,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all activities related to a contact.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://app.karmacrm.com/api/v3/activities/related.json</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1139,7 +1220,117 @@
 <td>Record ID</td>
 </tr>
 </tbody></table>
-<h1 id='histories'>Histories</h1><h2 id='get-related-histories-for-a-contact'>Get Related Histories (for a Contact)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/histories/related?api_token=oGscoGFsdS54mProUdDz&amp;record_type=Contact&amp;record_id=22&amp;per_page=100&amp;page=1"</span> <span class="se">\</span>
+<h1 id='histories'>Histories</h1><h2 id='get-all-histories'>Get All Histories</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/histories.json?api_token=oGscoGFsdS54mProUdDz&amp;per_page=3&amp;page=1&amp;include_external=true"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">137</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task Step"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task Step"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T16:50:56Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T16:50:56Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"participater_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"participater_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fresh Koolaid"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khulani Malone"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Malone&lt;/div&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contact_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T01:26:25Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17T01:26:21Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"participater_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"participater_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khulani Malone Company"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notification"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Webhook First"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Webhook First"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T17:02:36Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T17:02:36Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all histories.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/histories.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Gets a specific page of contacts</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Number of contacts per page</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+<tr>
+<td>include_external</td>
+<td>Boolean value to include external info</td>
+</tr>
+</tbody></table>
+<h2 id='get-related-histories-for-a-contact'>Get Related Histories (for a Contact)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/histories/related?api_token=oGscoGFsdS54mProUdDz&amp;record_type=Contact&amp;record_id=22&amp;per_page=100&amp;page=1"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
@@ -1211,9 +1402,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all histories related to a contact.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://app.karmacrm.com/api/v3/activities/related.json</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/histories/related.json</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
