@@ -229,7 +229,29 @@ curl "https://app.karmacrm.com/api/v3/contacts/25.json?api_token=oGscoGFsdS54mPr
     }
   ],
   "relationships":[],
-  "important_dates":[]
+  "important_dates":[],
+  "attachments": [
+    {
+      "id": 9,
+      "asset_id": 4,
+      "data_file_name": "document.pdf",
+      "data_content_type": "application/pdf",
+      "private": false,
+      "created_at_long": "03/12/2019 at  9:52pm",
+      "created_at": "2019-03-12T21:52:03Z",
+      "class_name": "Attachment"
+    },
+    {
+      "id": 13,
+      "asset_id": 12,
+      "data_file_name": "photo.JPG",
+      "data_content_type": "image/jpeg",
+      "private": false,
+      "created_at_long": "05/28/2019 at  9:30pm",
+      "created_at": "2019-05-28T21:30:10Z",
+      "class_name": "Attachment"
+    }
+  ]
 }
 ```
 

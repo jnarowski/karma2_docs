@@ -15,6 +15,7 @@ includes:
   - custom_fields
   - campaign_entries
   - social_account_types
+  - attachments
 
 search: true
 ---

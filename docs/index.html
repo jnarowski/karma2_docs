@@ -331,6 +331,20 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#attachments" class="toc-h1 toc-link" data-title="Attachments">Attachments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#download-an-attachment" class="toc-h2 toc-link" data-title="Download an Attachment">Download an Attachment</a>
+                  </li>
+                  <li>
+                    <a href="#create-an-attachment" class="toc-h2 toc-link" data-title="Create an Attachment">Create an Attachment</a>
+                  </li>
+                  <li>
+                    <a href="#delete-an-attachment" class="toc-h2 toc-link" data-title="Delete an Attachment">Delete an Attachment</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://app.karmacrm.com/'>Sign in to karmaCRM</a></li>
@@ -669,7 +683,29 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"relationships"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"important_dates"</span><span class="p">:[]</span><span class="w">
+  </span><span class="s2">"important_dates"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"asset_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document.pdf"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/pdf"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03/12/2019 at  9:52pm"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T21:52:03Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"class_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attachment"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"asset_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo.JPG"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05/28/2019 at  9:30pm"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-28T21:30:10Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"class_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attachment"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific contact.</p>
@@ -2372,6 +2408,115 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <tr>
 <td>api_token</td>
 <td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h1 id='attachments'>Attachments</h1><h2 id='download-an-attachment'>Download an Attachment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/assets/5/download?api_token=oGscoGFsdS54mProUdDz"</span> 
+</code></pre>
+<p>This endpoint downloads a specific file attachment.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v2/assets/5/download</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h2 id='create-an-attachment'>Create an Attachment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v2/attachments"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
+  -F <span class="s2">"attachment[record_type]=Contact"</span> <span class="se">\</span>
+  -F <span class="s2">"attachment[record_id]=5"</span> <span class="se">\</span>
+  -F <span class="s2">"attachment[file]=@/home/user1/Desktop/photo.jpeg"</span>
+</code></pre>
+<blockquote>
+<p>Successful attachment creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"asset_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"class_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attachment"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo.jpeg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data_file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">280930</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-28T14:17:10-06:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05/28/2019"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v2/attachments</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='form-data'>Form Data</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>attachment[record_type]</td>
+<td>Type of record associated w/ attachment i.e. Contact</td>
+</tr>
+<tr>
+<td>attachment[record_id]</td>
+<td>ID of Record associated w/ attachment</td>
+</tr>
+<tr>
+<td>attachment[file]</td>
+<td>File being attached (binary)</td>
+</tr>
+</tbody></table>
+<h2 id='delete-an-attachment'>Delete an Attachment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/attachments/27?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X DELETE 
+</code></pre>
+<p>This endpoint deletes a specific attachment file.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE https://app.karmacrm.com/api/v2/attachments/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
 </tr>
 </tbody></table>
 
