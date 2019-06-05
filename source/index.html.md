@@ -17,6 +17,7 @@ includes:
   - social_account_types
   - attachments
   - notes
+  - emails
 
 search: true
 ---

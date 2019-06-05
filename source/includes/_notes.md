@@ -411,7 +411,7 @@ curl "http://app.karmacrm.com/api/v2/histories/177.json?api_token=oGscoGFsdS54mP
 }
 ```
 
-This endpoint updates a specific contact.
+This endpoint updates a specific note (history).
 
 ### HTTP Request
 
@@ -444,7 +444,7 @@ curl "https://app.karmacrm.com/api/v2/histories/172.json?api_token=oGscoGFsdS54m
   -H "Content-Type: application/json"
 ```
 
-This endpoint deletes a specific contact.
+This endpoint deletes a specific note (history).
 
 ### HTTP Request
 

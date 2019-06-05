@@ -365,6 +365,23 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#emails" class="toc-h1 toc-link" data-title="Emails">Emails</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-an-email-draft" class="toc-h2 toc-link" data-title="Create an Email Draft">Create an Email Draft</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-email-and-optionally-sends-later" class="toc-h2 toc-link" data-title="Update an Email (and optionally sends later)">Update an Email (and optionally sends later)</a>
+                  </li>
+                  <li>
+                    <a href="#update-and-deliver-email-now" class="toc-h2 toc-link" data-title="Update and Deliver Email (Now)">Update and Deliver Email (Now)</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-note-history" class="toc-h2 toc-link" data-title="Delete a Note (History)">Delete a Note (History)</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://app.karmacrm.com/'>Sign in to karmaCRM</a></li>
@@ -2985,7 +3002,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint updates a specific contact.</p>
+<p>This endpoint updates a specific note (history).</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
@@ -3044,7 +3061,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
   -X DELETE <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
-<p>This endpoint deletes a specific contact.</p>
+<p>This endpoint deletes a specific note (history).</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE https://app.karmacrm.com/api/v2/histories/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
@@ -3064,6 +3081,266 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 </tr>
 </tbody></table>
 <h3 id='return-codes'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h1 id='emails'>Emails</h1><h2 id='create-an-email-draft'>Create an Email Draft</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json?api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
+  -X POST </span><span class="se">\</span><span class="s2">
+  -H "</span>Content-Type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
+  -d '{"</span>message<span class="s2">":{"</span>to<span class="s2">":[{"</span>id<span class="s2">":5,"</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>label<span class="s2">":"</span>John Smith<span class="s2">","</span>email<span class="s2">":"</span>john.smith@gmail.com<span class="s2">"}],"</span>authorization_id<span class="s2">":1,"</span>cc<span class="s2">":[{"</span>id<span class="s2">":"</span>46<span class="s2">","</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>email<span class="s2">":"</span>jane.smith@gmail.com<span class="s2">"}],"</span>bcc<span class="s2">":[{"</span>id<span class="s2">":"</span>22<span class="s2">","</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>email<span class="s2">":"</span>joe.smith@gmail.com<span class="s2">"}],"</span>subject<span class="s2">":"</span>My subject<span class="s2">","</span>body<span class="s2">":"</span>&lt;div&gt;My HTML body&lt;/div&gt;<span class="s2">"}}'
+</span></code></pre>
+<blockquote>
+<p>Successful email draft creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">171</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"from"</span><span class="p">:</span><span class="s2">"Tom Smith &lt;tom.smith@karmacrm.com&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subject"</span><span class="p">:</span><span class="s2">"My subject"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="s2">"&lt;div&gt;My HTML body&lt;/div&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"to"</span><span class="p">:[{</span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"jonh.smith@gmail.com"</span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"cc"</span><span class="p">:[{</span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">46</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"jane.smith@gmail.com"</span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"bcc"</span><span class="p">:[{</span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"joe.smith@gmail.com"</span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"email_template_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"authorization_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-06-05T12:31:54Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-06-05T12:31:54Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"attachments"</span><span class="p">:[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message[to]</td>
+<td>array of &#39;to&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;label&quot;: &quot;John Smith&quot;,</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[cc]</td>
+<td>array of &#39;cc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[bcc]</td>
+<td>array of &#39;bcc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[authorization_id]</td>
+<td>authorization id of sender (user)</td>
+</tr>
+<tr>
+<td>message[subject]</td>
+<td>Email subject</td>
+</tr>
+<tr>
+<td>message[body]</td>
+<td>Email body</td>
+</tr>
+</tbody></table>
+<h2 id='update-an-email-and-optionally-sends-later'>Update an Email (and optionally sends later)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"&lt;div&gt;My updated HTML body&lt;/div&gt;","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}],"deliver_at":"2019-06-05T08:56:41-06:00"}}'</span>
+</code></pre>
+<p>This endpoint updates a specific outgoing email draft.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message[to]</td>
+<td>array of &#39;to&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;label&quot;: &quot;John Smith&quot;,</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[cc]</td>
+<td>array of &#39;cc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[bcc]</td>
+<td>array of &#39;bcc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[authorization_id]</td>
+<td>authorization id of sender (user)</td>
+</tr>
+<tr>
+<td>message[subject]</td>
+<td>Email subject</td>
+</tr>
+<tr>
+<td>message[body]</td>
+<td>Email body</td>
+</tr>
+<tr>
+<td>message[reminders]</td>
+<td>array of reminders i.e. <br><code>{</code><br>&nbsp; <code>&quot;time_increment&quot;:&quot;2&quot;,</code><br>&nbsp; <code>&quot;interval&quot;:&quot;days&quot;</code><br>&nbsp; <code>&quot;reminder_type_id&quot;:4</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[deliver_at]</td>
+<td>optional time to send email at i.e. <code>2019-06-05T08:56:41-06:00</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-code'>Response Code</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='update-and-deliver-email-now'>Update and Deliver Email (Now)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173/update_and_deliver.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"&lt;div&gt;My updated HTML body&lt;/div&gt;","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}]}}'</span>
+</code></pre>
+<p>This endpoint updates and delivers messages.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;/update_and_deliver.json</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-3'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message[to]</td>
+<td>array of &#39;to&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;label&quot;: &quot;John Smith&quot;,</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[cc]</td>
+<td>array of &#39;cc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[bcc]</td>
+<td>array of &#39;bcc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[authorization_id]</td>
+<td>authorization id of sender (user)</td>
+</tr>
+<tr>
+<td>message[subject]</td>
+<td>Email subject</td>
+</tr>
+<tr>
+<td>message[body]</td>
+<td>Email body</td>
+</tr>
+<tr>
+<td>message[reminders]</td>
+<td>array of reminders i.e. <br><code>{</code><br>&nbsp; <code>&quot;time_increment&quot;:&quot;2&quot;,</code><br>&nbsp; <code>&quot;interval&quot;:&quot;days&quot;</code><br>&nbsp; <code>&quot;reminder_type_id&quot;:4</code><br><code>}</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-code-2'>Response Code</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-note-history'>Delete a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?api_token=oGscoGFsdS54mProUdDz"</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<p>This endpoint deletes a specific contact.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='response-code-3'>Response Code</h3>
 <table><thead>
 <tr>
 <th>Code</th>
