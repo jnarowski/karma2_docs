@@ -381,7 +381,6 @@ curl "http://app.karmacrm.com/api/v3/contacts.json?api_token=oGscoGFsdS54mProUdD
 }
 ```
 
-
 ### HTTP Request
 
 `POST https://app.karmacrm.com/api/v3/contacts.json`

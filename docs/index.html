@@ -345,6 +345,26 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#notes" class="toc-h1 toc-link" data-title="Notes">Notes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-notes-histories" class="toc-h2 toc-link" data-title="Get All Notes (Histories)">Get All Notes (Histories)</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-note-history" class="toc-h2 toc-link" data-title="Get a Note (History)">Get a Note (History)</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-note" class="toc-h2 toc-link" data-title="Create a Note">Create a Note</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-note-history" class="toc-h2 toc-link" data-title="Update a Note (History)">Update a Note (History)</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-note-history" class="toc-h2 toc-link" data-title="Delete a Note (History)">Delete a Note (History)</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://app.karmacrm.com/'>Sign in to karmaCRM</a></li>
@@ -2492,6 +2512,542 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>DELETE https://app.karmacrm.com/api/v2/attachments/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h1 id='notes'>Notes</h1><h2 id='get-all-notes-histories'>Get All Notes (Histories)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/histories.json?filters[external_type]=Note&amp;filters[history_record_id]=46&amp;filters[history_record_type]=Contact&amp;page=1&amp;api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
+  -H "</span>Content-Type: application/json<span class="s2">"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"history_record_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts/46"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">179</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T22:48:15Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T22:48:15Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"note_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">160</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">160</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"delta"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"read"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T22:48:15Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"comment_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"secondary_history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"secondary_history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"activity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contact_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"history"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"histories_development"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_version"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sort"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1559688495000</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"highlight"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_explanation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_record"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="s2">"posted_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Posted by"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"box_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"note"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notes/160"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history_type_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"editable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"list_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"class_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"History"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"filter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external type 'Note' history record id '46' history record type 'Contact' "</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all contacts.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v2/histories.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Gets a specific page of histories</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+<tr>
+<td>filters[external_type]</td>
+<td>Type of history i.e. <code>Note</code></td>
+</tr>
+<tr>
+<td>filters[history_record_type]</td>
+<td>Record type assocated with histories i.e. <code>Contact</code>, <code>Company</code>, etc</td>
+</tr>
+<tr>
+<td>filters[history_record_id]</td>
+<td>Record id associated with histories</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-note-history'>Get a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/histories/179.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"179"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T22:48:15Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T22:48:15Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"note_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">160</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">160</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"delta"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"read"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T22:48:15Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"comment_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"secondary_history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"secondary_history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"activity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">160</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contact_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participater_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participater_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"history"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"histories_development"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_record_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_record_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacts/46"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"occurred_at_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06/04"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"class_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"History"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"posted_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Posted by"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"occurred_at_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06/04/2019 at  4:48pm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06/04/2019"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"box_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"note"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"editable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"list_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific contact.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v2/histories/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to retrieve</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-note'>Create a Note</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v2/notes.json??api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
+  -X POST </span><span class="se">\</span><span class="s2">
+  -H "</span>Content-Type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
+  -d '{"</span>result_type<span class="s2">":"</span>backbone<span class="s2">","</span>note<span class="s2">":{"</span>body<span class="s2">":"</span>My Note Content<span class="s2">","</span>contact_type_id<span class="s2">":3,"</span>date<span class="s2">":"</span>2019-06-12<span class="s2">","</span>participants<span class="s2">":[{"</span>label<span class="s2">":"</span>John Smith<span class="s2">","</span>participater_type<span class="s2">":"</span>User<span class="s2">","</span>participater_id<span class="s2">":4}],"</span>user_ids<span class="s2">":[4],"</span>parent_type<span class="s2">":"</span>Contact<span class="s2">","</span>parent_id<span class="s2">":11}}'
+</span></code></pre>
+<blockquote>
+<p>Successful note creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">153</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bcc"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cc"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T10:16:18-06:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T10:16:18-06:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"from_lead"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"html_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sent_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"draft"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dropbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email_template_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"asset_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email_filename"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"viewed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"note_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"opened_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"incoming"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contextio_message_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deliver_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"replied_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"campaign_entry_step_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bounced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"delivery_attempts"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"class_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Decorators::Note"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">172</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T10:16:18-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-04T10:16:18-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"note_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">153</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">153</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"external_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"delta"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"read"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-12T10:16:00-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"comment_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"secondary_history_record_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"secondary_history_record_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"additional_information"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"activity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"occurred_at_utc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-12T16:16:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"class_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"History"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"posted_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Posted by"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"box_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"note"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"editable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"list_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Note Content"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v2/notes.json</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>note[body]</td>
+<td>Note Content</td>
+</tr>
+<tr>
+<td>note[contact_type_id]</td>
+<td>type id for note i.e <code>3</code> to add a note, <code>2</code> log a call</td>
+</tr>
+<tr>
+<td>note[date]</td>
+<td>Date added to note</td>
+</tr>
+<tr>
+<td>note[time]</td>
+<td>Time added to note</td>
+</tr>
+<tr>
+<td>note[parent_type]</td>
+<td>Record Type associated with note i.e. <code>Contact</code>, <code>Company</code>, etc</td>
+</tr>
+<tr>
+<td>note[parent_id]</td>
+<td>Record ID associated with note</td>
+</tr>
+<tr>
+<td>note[user_ids]</td>
+<td>User IDs to receive email notification</td>
+</tr>
+<tr>
+<td>note[participants]</td>
+<td>array of participants, i.e. <br><code>{</code><br>&nbsp; <code>&quot;label&quot;: &quot;John Smith&quot;,</code><br>&nbsp; <code>&quot;participater_type&quot;:&quot;User&quot;,</code><br>&nbsp; <code>&quot;participater_id&quot;:4</code><br><code>}</code></td>
+</tr>
+</tbody></table>
+<h2 id='update-a-note-history'>Update a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v2/histories/177.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"result_type":"backbone","history":{"date":"2019-06-19","time":"4:30am","external":{"type":"Note","id":158,"label":"My Updated Note Content","private":false,"body":"My Updated Note Content"}}}'</span>
+</code></pre>
+<blockquote>
+<p>Successful note update response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">177</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_record_id"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_record_type"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_type_id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Phone Call"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-06-04T12:48:52-06:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-06-04T12:57:07-06:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"note_id"</span><span class="p">:</span><span class="mi">158</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"company_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external_id"</span><span class="p">:</span><span class="mi">158</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external_type"</span><span class="p">:</span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"group_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"delta"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"read"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"notification"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"occurred_at"</span><span class="p">:</span><span class="s2">"2019-06-19T10:30:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"comment_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_category_id"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"secondary_history_record_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"secondary_history_record_type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"additional_information"</span><span class="p">:{},</span><span class="w">
+  </span><span class="s2">"activity_type"</span><span class="p">:</span><span class="s2">"phone_call_created"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_record_label"</span><span class="p">:</span><span class="s2">"Fred Derf"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"history_record_path"</span><span class="p">:</span><span class="s2">"contacts/11"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"occurred_at_short"</span><span class="p">:</span><span class="s2">"06/19"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"class_name"</span><span class="p">:</span><span class="s2">"History"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"posted_by"</span><span class="p">:</span><span class="s2">"Posted by"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"occurred_at_long"</span><span class="p">:</span><span class="s2">"06/19/2019 at  4:30am"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at_formatted"</span><span class="p">:</span><span class="s2">"06/04/2019"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"box_class"</span><span class="p">:</span><span class="s2">"phone-call"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"editable"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"list_body"</span><span class="p">:</span><span class="s2">"My Updated Note Content"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="s2">"My Updated Note Content"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">158</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bcc"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cc"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"body"</span><span class="p">:</span><span class="s2">"My Updated Note Content"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subject"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contact_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-06-04T12:48:52-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-06-04T12:57:07-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from_lead"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"html_email"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sent_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"draft"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dropbox"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signature"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_template_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"asset_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_filename"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"viewed_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"note_type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"opened_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"incoming"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_message_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"private"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deliver_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"replied_at"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"campaign_entry_step_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bounced"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"delivery_attempts"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"attachments"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"participants"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participater_id"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participater_type"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"Fred Derf"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">197</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participater_id"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participater_type"</span><span class="p">:</span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"khulani@gmail.com malone"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a specific contact.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result_type</td>
+<td>result type (...may not be required) i.e. <code>backbone</code></td>
+</tr>
+<tr>
+<td>history[date]</td>
+<td>Date added to note</td>
+</tr>
+<tr>
+<td>history[time]</td>
+<td>Time added to note</td>
+</tr>
+<tr>
+<td>history[external][type]</td>
+<td><code>Note</code></td>
+</tr>
+<tr>
+<td>history[external][id]</td>
+<td>Note id</td>
+</tr>
+<tr>
+<td>history[external][body]</td>
+<td>Note content</td>
+</tr>
+<tr>
+<td>history[external][label]</td>
+<td>Note content (same value as body)</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-note-history'>Delete a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/histories/172.json?api_token=oGscoGFsdS54mProUdDz"</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<p>This endpoint deletes a specific contact.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://app.karmacrm.com/api/v2/histories/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

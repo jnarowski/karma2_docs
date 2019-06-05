@@ -16,6 +16,7 @@ includes:
   - campaign_entries
   - social_account_types
   - attachments
+  - notes
 
 search: true
 ---
