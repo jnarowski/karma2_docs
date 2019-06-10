@@ -181,7 +181,7 @@ api_token | The token to authenticate request
 ## Create a Note
 
 ```shell
-curl "http://app.karmacrm.com/api/v2/notes.json??api_token=oGscoGFsdS54mProUdDz \
+curl "https://app.karmacrm.com/api/v2/notes.json??api_token=oGscoGFsdS54mProUdDz \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"result_type":"backbone","note":{"body":"My Note Content","contact_type_id":3,"date":"2019-06-12","participants":[{"label":"John Smith","participater_type":"User","participater_id":4}],"user_ids":[4],"parent_type":"Contact","parent_id":11}}'
@@ -300,7 +300,7 @@ note[participants] | array of participants, i.e. <br>`{`<br>&nbsp; `"label": "Jo
 ## Update a Note (History)
 
 ```shell
-curl "http://app.karmacrm.com/api/v2/histories/177.json?api_token=oGscoGFsdS54mProUdDz" \
+curl "https://app.karmacrm.com/api/v2/histories/177.json?api_token=oGscoGFsdS54mProUdDz" \
   -X PUT \
   -H "Content-Type: application/json" \
   -d '{"result_type":"backbone","history":{"date":"2019-06-19","time":"4:30am","external":{"type":"Note","id":158,"label":"My Updated Note Content","private":false,"body":"My Updated Note Content"}}}'
@@ -415,7 +415,7 @@ This endpoint updates a specific note (history).
 
 ### HTTP Request
 
-`PUT https://app.karmacrm.com/api/v3/contacts/<ID>.json`
+`PUT https://app.karmacrm.com/api/v2/histories/<ID>.json`
 
 ### URL Parameters
 

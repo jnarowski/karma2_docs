@@ -3,7 +3,7 @@
 ## Create an Email Draft
 
 ```shell
-curl "http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json?api_token=oGscoGFsdS54mProUdDz \
+curl "https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json?api_token=oGscoGFsdS54mProUdDz \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"authorization_id":1,"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}],"subject":"My subject","body":"<div>My HTML body</div>"}}'
@@ -38,7 +38,7 @@ curl "http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draf
 
 ### HTTP Request
 
-`POST http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json`
+`POST https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json`
 
 ### URL Parameters
 
@@ -60,7 +60,7 @@ message[body] | Email body
 ## Update an Email (and optionally sends later)
 
 ```shell
-curl "http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173.json?api_token=oGscoGFsdS54mProUdDz" \
+curl "https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173.json?api_token=oGscoGFsdS54mProUdDz" \
   -X PUT \
   -H "Content-Type: application/json" \
   -d '{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"<div>My updated HTML body</div>","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}],"deliver_at":"2019-06-05T08:56:41-06:00"}}'
@@ -70,7 +70,7 @@ This endpoint updates a specific outgoing email draft.
 
 ### HTTP Request
 
-`PUT http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/<ID>.json`
+`PUT https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/<ID>.json`
 
 ### URL Parameters
 
@@ -101,7 +101,7 @@ Code | Description
 ## Update and Deliver Email (Now)
 
 ```shell
-curl "http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173/update_and_deliver.json?api_token=oGscoGFsdS54mProUdDz" \
+curl "https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173/update_and_deliver.json?api_token=oGscoGFsdS54mProUdDz" \
   -X PUT \
   -H "Content-Type: application/json" \
   -d '{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"<div>My updated HTML body</div>","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}]}}'
@@ -111,7 +111,7 @@ This endpoint updates and delivers messages.
 
 ### HTTP Request
 
-`PUT http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/<ID>/update_and_deliver.json`
+`PUT https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/<ID>/update_and_deliver.json`
 
 ### URL Parameters
 
@@ -141,7 +141,7 @@ Code | Description
 ## Delete a Note (History)
 
 ```shell
-curl "http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?api_token=oGscoGFsdS54mProUdDz"
+curl "https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?api_token=oGscoGFsdS54mProUdDz"
   -X DELETE \
   -H "Content-Type: application/json"
 ```
@@ -150,7 +150,7 @@ This endpoint deletes a specific contact.
 
 ### HTTP Request
 
-`DELETE http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/<ID>.json`
+`DELETE https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/<ID>.json`
 
 ### URL Parameters
 

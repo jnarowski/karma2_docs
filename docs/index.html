@@ -2747,7 +2747,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>The token to authenticate request</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-note'>Create a Note</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v2/notes.json??api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
+<h2 id='create-a-note'>Create a Note</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/notes.json??api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
   -X POST </span><span class="se">\</span><span class="s2">
   -H "</span>Content-Type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
   -d '{"</span>result_type<span class="s2">":"</span>backbone<span class="s2">","</span>note<span class="s2">":{"</span>body<span class="s2">":"</span>My Note Content<span class="s2">","</span>contact_type_id<span class="s2">":3,"</span>date<span class="s2">":"</span>2019-06-12<span class="s2">","</span>participants<span class="s2">":[{"</span>label<span class="s2">":"</span>John Smith<span class="s2">","</span>participater_type<span class="s2">":"</span>User<span class="s2">","</span>participater_id<span class="s2">":4}],"</span>user_ids<span class="s2">":[4],"</span>parent_type<span class="s2">":"</span>Contact<span class="s2">","</span>parent_id<span class="s2">":11}}'
@@ -2892,7 +2892,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>array of participants, i.e. <br><code>{</code><br>&nbsp; <code>&quot;label&quot;: &quot;John Smith&quot;,</code><br>&nbsp; <code>&quot;participater_type&quot;:&quot;User&quot;,</code><br>&nbsp; <code>&quot;participater_id&quot;:4</code><br><code>}</code></td>
 </tr>
 </tbody></table>
-<h2 id='update-a-note-history'>Update a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v2/histories/177.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+<h2 id='update-a-note-history'>Update a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/histories/177.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{"result_type":"backbone","history":{"date":"2019-06-19","time":"4:30am","external":{"type":"Note","id":158,"label":"My Updated Note Content","private":false,"body":"My Updated Note Content"}}}'</span>
@@ -3004,7 +3004,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 </span></code></pre>
 <p>This endpoint updates a specific note (history).</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
+<p><code>PUT https://app.karmacrm.com/api/v2/histories/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3092,7 +3092,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>No content</td>
 </tr>
 </tbody></table>
-<h1 id='emails'>Emails</h1><h2 id='create-an-email-draft'>Create an Email Draft</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json?api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
+<h1 id='emails'>Emails</h1><h2 id='create-an-email-draft'>Create an Email Draft</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json?api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
   -X POST </span><span class="se">\</span><span class="s2">
   -H "</span>Content-Type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
   -d '{"</span>message<span class="s2">":{"</span>to<span class="s2">":[{"</span>id<span class="s2">":5,"</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>label<span class="s2">":"</span>John Smith<span class="s2">","</span>email<span class="s2">":"</span>john.smith@gmail.com<span class="s2">"}],"</span>authorization_id<span class="s2">":1,"</span>cc<span class="s2">":[{"</span>id<span class="s2">":"</span>46<span class="s2">","</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>email<span class="s2">":"</span>jane.smith@gmail.com<span class="s2">"}],"</span>bcc<span class="s2">":[{"</span>id<span class="s2">":"</span>22<span class="s2">","</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>email<span class="s2">":"</span>joe.smith@gmail.com<span class="s2">"}],"</span>subject<span class="s2">":"</span>My subject<span class="s2">","</span>body<span class="s2">":"</span>&lt;div&gt;My HTML body&lt;/div&gt;<span class="s2">"}}'
@@ -3124,7 +3124,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
   </span><span class="s2">"attachments"</span><span class="p">:[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json</code></p>
+<p><code>POST https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3169,14 +3169,14 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>Email body</td>
 </tr>
 </tbody></table>
-<h2 id='update-an-email-and-optionally-sends-later'>Update an Email (and optionally sends later)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+<h2 id='update-an-email-and-optionally-sends-later'>Update an Email (and optionally sends later)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"&lt;div&gt;My updated HTML body&lt;/div&gt;","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}],"deliver_at":"2019-06-05T08:56:41-06:00"}}'</span>
 </code></pre>
 <p>This endpoint updates a specific outgoing email draft.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>PUT http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
+<p><code>PUT https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3245,14 +3245,14 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>No content</td>
 </tr>
 </tbody></table>
-<h2 id='update-and-deliver-email-now'>Update and Deliver Email (Now)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173/update_and_deliver.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+<h2 id='update-and-deliver-email-now'>Update and Deliver Email (Now)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173/update_and_deliver.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"&lt;div&gt;My updated HTML body&lt;/div&gt;","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}]}}'</span>
 </code></pre>
 <p>This endpoint updates and delivers messages.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;/update_and_deliver.json</code></p>
+<p><code>PUT https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;/update_and_deliver.json</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3317,13 +3317,13 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>No content</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-note-history'>Delete a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?api_token=oGscoGFsdS54mProUdDz"</span>
+<h2 id='delete-a-note-history'>Delete a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?api_token=oGscoGFsdS54mProUdDz"</span>
   -X DELETE <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <p>This endpoint deletes a specific contact.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DELETE http://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
+<p><code>DELETE https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
