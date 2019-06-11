@@ -20,7 +20,7 @@ api_token | The token to authenticate request
 ## Create an Attachment
 
 ```shell
-curl "http://app.karmacrm.com/api/v2/attachments" \
+curl "https://app.karmacrm.com/api/v2/attachments" \
   -X POST \
   -H "Content-Type: multipart/form-data" \
   -F "attachment[record_type]=Contact" \

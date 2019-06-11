@@ -230,6 +230,14 @@
               </ul>
           </li>
           <li>
+            <a href="#authorizations" class="toc-h1 toc-link" data-title="Authorizations">Authorizations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-authorizations" class="toc-h2 toc-link" data-title="Get all authorizations">Get all authorizations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#contacts" class="toc-h1 toc-link" data-title="Contacts">Contacts</a>
               <ul class="toc-list-h2">
                   <li>
@@ -369,6 +377,9 @@
             <a href="#emails" class="toc-h1 toc-link" data-title="Emails">Emails</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#send-an-email" class="toc-h2 toc-link" data-title="Send an email">Send an email</a>
+                  </li>
+                  <li>
                     <a href="#create-an-email-draft" class="toc-h2 toc-link" data-title="Create an Email Draft">Create an Email Draft</a>
                   </li>
                   <li>
@@ -378,7 +389,7 @@
                     <a href="#update-and-deliver-email-now" class="toc-h2 toc-link" data-title="Update and Deliver Email (Now)">Update and Deliver Email (Now)</a>
                   </li>
                   <li>
-                    <a href="#delete-a-note-history" class="toc-h2 toc-link" data-title="Delete a Note (History)">Delete a Note (History)</a>
+                    <a href="#delete-an-email-draft" class="toc-h2 toc-link" data-title="Delete an Email Draft">Delete an Email Draft</a>
                   </li>
               </ul>
           </li>
@@ -476,6 +487,178 @@
 <tr>
 <td>account[password]</td>
 <td>User&#39;s password</td>
+</tr>
+</tbody></table>
+<h1 id='authorizations'>Authorizations</h1><h2 id='get-all-authorizations'>Get all authorizations</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/settings/integrations.json?api_token=oGscoGFsdS54mProUdDz"</span> 
+</code></pre>
+<blockquote>
+<p>Successful response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"last_synced_at_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monday Apr, 22nd at  9:06am"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nylas_mailman"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"khulani@karmacrm.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-12T14:21:46-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T10:52:47-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mJKFXxe6PXexkVM2fse5FHu3JrVK9r"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"secret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"khulani@karmacrm.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"send_copy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"open_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"click_tracking"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"incoming_emails_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"outgoing_emails_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"import_past_emails"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"incoming_emails_notifications_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"privacy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refreshing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_synced_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-22T09:06:56-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">incoming</span><span class="se">\"</span><span class="s2">:null,</span><span class="se">\"</span><span class="s2">outgoing</span><span class="se">\"</span><span class="s2">:null}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rwlesmklasdwapp6zizx1fo9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7642p8a4ciwbfs5tl0qkd7dmk"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_source_label"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"last_synced_at_formatted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tuesday Mar, 19th at 11:51am"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google_contacts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"109333742401691400392"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-19T10:37:50-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-19T11:51:28-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ya67.GlvRBqzYwxjnncMqf3PB_6FPd3xsdXlfnoWRvwrKhjqSUUhiaIvY1bLhiQJIxJ9EI2yufMUOZeFY7DciVq89TiAWaecZtUHKmZHBZpq8zTR3Yj2sHSDJGxkTtq7_"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"secret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"khulani@karmacrm.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"google_contact_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com/m8/feeds/groups/khulani%40karmacrm.com/base/6"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System Group: My Contacts"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System Group: My Contacts"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com/m8/feeds/groups/khulani%40karmacrm.com/base/d"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System Group: Friends"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System Group: Friends"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com/m8/feeds/groups/khulani%40karmacrm.com/base/e"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System Group: Family"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System Group: Family"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com/m8/feeds/groups/khulani%40karmacrm.com/base/f"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System Group: Coworkers"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System Group: Coworkers"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"selected_google_contact_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"http://www.google.com/m8/feeds/groups/khulani%40karmacrm.com/base/6"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"sync_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"import"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refreshing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_synced_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-19T11:51:26-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/JgVweYDDFWs5biaukM4ndi0vK4V_mfvzXbyEa5RjTpjJuryp3KoLhhuEWSSF_pxz"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_source_label"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sparkpost"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-08T15:53:09-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-08T15:53:09-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"secret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refreshing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_synced_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_source_label"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailchimp"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14fe08de6b94402fef9b9ecdc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-25T07:13:31-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-25T07:13:31-06:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"748340185da250c1021661bc0a6147ac"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"secret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"khulani@karmacrm.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"api_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://us20.api.mailchimp.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refreshing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_synced_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"old_entity_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contextio_source_label"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint gets authorizations.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v2/settings/integrations.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
 </tr>
 </tbody></table>
 <h1 id='contacts'>Contacts</h1><h2 id='get-all-contacts'>Get All Contacts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts?api_token=oGscoGFsdS54mProUdDz&amp;page=3&amp;filters%5Bcontact_stage_id%5D=13&amp;sorts%5Bfirst_name%5D=asc"</span> <span class="se">\</span>
@@ -764,7 +947,7 @@
 <td>The token to authenticate request</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-contact'>Create a Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/contacts.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+<h2 id='create-a-contact'>Create a Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{"contact":{"first_name":"John","last_name":"Smith","position":"developer","background":"Good developer with 3+ years of experience","contact_stage_id":13,"contact_status_id":13,"referral_source_id":8,"department":"Development","industry_id":null,"company":{"name":"Company A"},"tags":["development","usa"],"addresses":[{"street":"South St","city":"Chicago","state":"Illinois","country":"USA","postal_code":"60667","address_type_id":2}],"phone_numbers":[{"number":"+7 902 4321 2123","phone_number_type_id":2}],"emails":[{"email":"john.smith@example.com","email_type_id":2}],"social_accounts":[{"name":"john_smith","social_account_type_id":1}],"websites":[{"url":"example.com","website_type_id":1},{"url":"another.com","label":"New Label"}],"field_values":[{"field_id":1,"value":"Updated text"},{"field_parent_id":2,"field_id":4}],"permissions":[{"accessor_id":5,"accessor_type":"User","permission":1}]}}'</span>
@@ -970,7 +1153,7 @@
 <td>array of permission granting access to contact&#39;s info i.e.<br><code>{</code><br>&nbsp; <code>&quot;accessor_id&quot;: 4,</code><br>&nbsp; <code>&quot;accessor_type&quot;: &quot;User&quot;,</code><br>&nbsp; <code>&quot;permission&quot;: 1</code><br>}</td>
 </tr>
 </tbody></table>
-<h2 id='update-a-contact'>Update a Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v3/contacts/24.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+<h2 id='update-a-contact'>Update a Contact</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts/24.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{"contact":{"first_name":"John","last_name":"Smith","background":"Good developer with 3+ years of experience","position":"developer","private_notes":null,"department":"Development","referral_source_id":8,"user_id":4,"industry_id":null,"private":true,"contact_status_id":13,"contact_stage_id":13,"tags":["development","usa"],"company":{"id":5,"name":"Company A"},"emails":[{"id":12,"email":"john.smith@example.com","email_type_id":2}],"websites":[{"id":4,"url":"example.com","website_type_id":1}],"phone_numbers":[{"id":6,"number":"+7 902 4321 2123","phone_number_type_id":2}],"addresses":[{"id":4,"country":"USA","city":"Chicago","street":"South St","postal_code":"60667","address_type_id":2}],"social_accounts":[{"id":3,"name":"john_smith","social_account_type_id":1}],"field_values":[{"id":7,"field_id":1,"value":"Updated text curl2"},{"id":13,"field_id":4,"field_parent_id":2,"value":"4"}],"permissions":[{"id":1,"permission":1,"accessor_id":5,"accessor_type":"User"}]}}'</span>
@@ -2464,7 +2647,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>The token to authenticate request</td>
 </tr>
 </tbody></table>
-<h2 id='create-an-attachment'>Create an Attachment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://app.karmacrm.com/api/v2/attachments"</span> <span class="se">\</span>
+<h2 id='create-an-attachment'>Create an Attachment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/attachments"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
   -F <span class="s2">"attachment[record_type]=Contact"</span> <span class="se">\</span>
@@ -3092,7 +3275,63 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>No content</td>
 </tr>
 </tbody></table>
-<h1 id='emails'>Emails</h1><h2 id='create-an-email-draft'>Create an Email Draft</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json?api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
+<h1 id='emails'>Emails</h1><h2 id='send-an-email'>Send an email</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages.json?api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
+  -X POST </span><span class="se">\</span><span class="s2">
+  -H "</span>Content-Type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
+  -d '{"</span>message<span class="s2">":{"</span>to<span class="s2">":[{"</span>id<span class="s2">":5,"</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>label<span class="s2">":"</span>John Smith<span class="s2">","</span>email<span class="s2">":"</span>john.smith@gmail.com<span class="s2">"}],"</span>authorization_id<span class="s2">":1,"</span>subject<span class="s2">":"</span>My subject<span class="s2">","</span>body<span class="s2">":"</span>&lt;div&gt;My HTML body&lt;/div&gt;<span class="s2">"}}'
+</span></code></pre>
+<p>This endpoint sends an email.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message[to]</td>
+<td>array of &#39;to&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;label&quot;: &quot;John Smith&quot;,</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[authorization_id]</td>
+<td>authorization id of sender (user)</td>
+</tr>
+<tr>
+<td>message[subject]</td>
+<td>Email subject</td>
+</tr>
+<tr>
+<td>message[body]</td>
+<td>Email body</td>
+</tr>
+</tbody></table>
+<h3 id='response-code'>Response Code</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='create-an-email-draft'>Create an Email Draft</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json?api_token=oGscoGFsdS54mProUdDz </span><span class="se">\</span><span class="s2">
   -X POST </span><span class="se">\</span><span class="s2">
   -H "</span>Content-Type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
   -d '{"</span>message<span class="s2">":{"</span>to<span class="s2">":[{"</span>id<span class="s2">":5,"</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>label<span class="s2">":"</span>John Smith<span class="s2">","</span>email<span class="s2">":"</span>john.smith@gmail.com<span class="s2">"}],"</span>authorization_id<span class="s2">":1,"</span>cc<span class="s2">":[{"</span>id<span class="s2">":"</span>46<span class="s2">","</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>email<span class="s2">":"</span>jane.smith@gmail.com<span class="s2">"}],"</span>bcc<span class="s2">":[{"</span>id<span class="s2">":"</span>22<span class="s2">","</span><span class="nb">type</span><span class="s2">":"</span>Contact<span class="s2">","</span>email<span class="s2">":"</span>joe.smith@gmail.com<span class="s2">"}],"</span>subject<span class="s2">":"</span>My subject<span class="s2">","</span>body<span class="s2">":"</span>&lt;div&gt;My HTML body&lt;/div&gt;<span class="s2">"}}'
@@ -3123,9 +3362,11 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-06-05T12:31:54Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"attachments"</span><span class="p">:[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre>
+<p>This endpoint creates an email draft</p>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3137,7 +3378,7 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>The token to authenticate request</td>
 </tr>
 </tbody></table>
-<h3 id='request-payload'>Request Payload</h3>
+<h3 id='request-payload-2'>Request Payload</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3175,84 +3416,8 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
   -d <span class="s1">'{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"&lt;div&gt;My updated HTML body&lt;/div&gt;","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}],"deliver_at":"2019-06-05T08:56:41-06:00"}}'</span>
 </code></pre>
 <p>This endpoint updates a specific outgoing email draft.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>PUT https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the contact to delete</td>
-</tr>
-<tr>
-<td>api_token</td>
-<td>The token to authenticate request</td>
-</tr>
-</tbody></table>
-<h3 id='request-payload-2'>Request Payload</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>message[to]</td>
-<td>array of &#39;to&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;label&quot;: &quot;John Smith&quot;,</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
-</tr>
-<tr>
-<td>message[cc]</td>
-<td>array of &#39;cc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
-</tr>
-<tr>
-<td>message[bcc]</td>
-<td>array of &#39;bcc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
-</tr>
-<tr>
-<td>message[authorization_id]</td>
-<td>authorization id of sender (user)</td>
-</tr>
-<tr>
-<td>message[subject]</td>
-<td>Email subject</td>
-</tr>
-<tr>
-<td>message[body]</td>
-<td>Email body</td>
-</tr>
-<tr>
-<td>message[reminders]</td>
-<td>array of reminders i.e. <br><code>{</code><br>&nbsp; <code>&quot;time_increment&quot;:&quot;2&quot;,</code><br>&nbsp; <code>&quot;interval&quot;:&quot;days&quot;</code><br>&nbsp; <code>&quot;reminder_type_id&quot;:4</code><br><code>}</code></td>
-</tr>
-<tr>
-<td>message[deliver_at]</td>
-<td>optional time to send email at i.e. <code>2019-06-05T08:56:41-06:00</code></td>
-</tr>
-</tbody></table>
-<h3 id='response-code'>Response Code</h3>
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>204</td>
-<td>No content</td>
-</tr>
-</tbody></table>
-<h2 id='update-and-deliver-email-now'>Update and Deliver Email (Now)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173/update_and_deliver.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
-  -X PUT <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -d <span class="s1">'{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"&lt;div&gt;My updated HTML body&lt;/div&gt;","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}]}}'</span>
-</code></pre>
-<p>This endpoint updates and delivers messages.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;/update_and_deliver.json</code></p>
+<p><code>PUT https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3304,6 +3469,10 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>message[reminders]</td>
 <td>array of reminders i.e. <br><code>{</code><br>&nbsp; <code>&quot;time_increment&quot;:&quot;2&quot;,</code><br>&nbsp; <code>&quot;interval&quot;:&quot;days&quot;</code><br>&nbsp; <code>&quot;reminder_type_id&quot;:4</code><br><code>}</code></td>
 </tr>
+<tr>
+<td>message[deliver_at]</td>
+<td>optional time to send email at i.e. <code>2019-06-05T08:56:41-06:00</code></td>
+</tr>
 </tbody></table>
 <h3 id='response-code-2'>Response Code</h3>
 <table><thead>
@@ -3317,13 +3486,14 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>No content</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-note-history'>Delete a Note (History)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?api_token=oGscoGFsdS54mProUdDz"</span>
-  -X DELETE <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
+<h2 id='update-and-deliver-email-now'>Update and Deliver Email (Now)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/173/update_and_deliver.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"subject":"My updated  subject","body":"&lt;div&gt;My updated HTML body&lt;/div&gt;","reminders":[{"time_increment":"2","interval":"days","reminder_type_id":4}],"cc":[{"id":"46","type":"Contact","email":"jane.smith@gmail.com"}],"bcc":[{"id":"22","type":"Contact","email":"joe.smith@gmail.com"}]}}'</span>
 </code></pre>
-<p>This endpoint deletes a specific contact.</p>
+<p>This endpoint updates and delivers messages.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DELETE https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
+<p><code>PUT https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;/update_and_deliver.json</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -3340,7 +3510,78 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <td>The token to authenticate request</td>
 </tr>
 </tbody></table>
+<h3 id='request-payload-4'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message[to]</td>
+<td>array of &#39;to&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;label&quot;: &quot;John Smith&quot;,</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[cc]</td>
+<td>array of &#39;cc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[bcc]</td>
+<td>array of &#39;bcc&#39; recipients i.e. <br><code>{</code><br>&nbsp; <code>&quot;type&quot;:&quot;Contact&quot;,</code><br>&nbsp; <code>&quot;email&quot;:&quot;john.smith@gmail.com&quot;</code><br>&nbsp; <code>&quot;id&quot;:5</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>message[authorization_id]</td>
+<td>authorization id of sender (user)</td>
+</tr>
+<tr>
+<td>message[subject]</td>
+<td>Email subject</td>
+</tr>
+<tr>
+<td>message[body]</td>
+<td>Email body</td>
+</tr>
+<tr>
+<td>message[reminders]</td>
+<td>array of reminders i.e. <br><code>{</code><br>&nbsp; <code>&quot;time_increment&quot;:&quot;2&quot;,</code><br>&nbsp; <code>&quot;interval&quot;:&quot;days&quot;</code><br>&nbsp; <code>&quot;reminder_type_id&quot;:4</code><br><code>}</code></td>
+</tr>
+</tbody></table>
 <h3 id='response-code-3'>Response Code</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='delete-an-email-draft'>Delete an Email Draft</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?api_token=oGscoGFsdS54mProUdDz"</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<p>This endpoint deletes an email draft.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='response-code-4'>Response Code</h3>
 <table><thead>
 <tr>
 <th>Code</th>

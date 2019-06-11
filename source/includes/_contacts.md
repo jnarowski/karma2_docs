@@ -271,7 +271,7 @@ api_token | The token to authenticate request
 ## Create a Contact
 
 ```shell
-curl "http://app.karmacrm.com/api/v3/contacts.json?api_token=oGscoGFsdS54mProUdDz" \
+curl "https://app.karmacrm.com/api/v3/contacts.json?api_token=oGscoGFsdS54mProUdDz" \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"contact":{"first_name":"John","last_name":"Smith","position":"developer","background":"Good developer with 3+ years of experience","contact_stage_id":13,"contact_status_id":13,"referral_source_id":8,"department":"Development","industry_id":null,"company":{"name":"Company A"},"tags":["development","usa"],"addresses":[{"street":"South St","city":"Chicago","state":"Illinois","country":"USA","postal_code":"60667","address_type_id":2}],"phone_numbers":[{"number":"+7 902 4321 2123","phone_number_type_id":2}],"emails":[{"email":"john.smith@example.com","email_type_id":2}],"social_accounts":[{"name":"john_smith","social_account_type_id":1}],"websites":[{"url":"example.com","website_type_id":1},{"url":"another.com","label":"New Label"}],"field_values":[{"field_id":1,"value":"Updated text"},{"field_parent_id":2,"field_id":4}],"permissions":[{"accessor_id":5,"accessor_type":"User","permission":1}]}}'
@@ -418,7 +418,7 @@ contact[permissions] | array of permission granting access to contact's info i.e
 ## Update a Contact
 
 ```shell
-curl "http://app.karmacrm.com/api/v3/contacts/24.json?api_token=oGscoGFsdS54mProUdDz" \
+curl "https://app.karmacrm.com/api/v3/contacts/24.json?api_token=oGscoGFsdS54mProUdDz" \
   -X PUT \
   -H "Content-Type: application/json" \
   -d '{"contact":{"first_name":"John","last_name":"Smith","background":"Good developer with 3+ years of experience","position":"developer","private_notes":null,"department":"Development","referral_source_id":8,"user_id":4,"industry_id":null,"private":true,"contact_status_id":13,"contact_stage_id":13,"tags":["development","usa"],"company":{"id":5,"name":"Company A"},"emails":[{"id":12,"email":"john.smith@example.com","email_type_id":2}],"websites":[{"id":4,"url":"example.com","website_type_id":1}],"phone_numbers":[{"id":6,"number":"+7 902 4321 2123","phone_number_type_id":2}],"addresses":[{"id":4,"country":"USA","city":"Chicago","street":"South St","postal_code":"60667","address_type_id":2}],"social_accounts":[{"id":3,"name":"john_smith","social_account_type_id":1}],"field_values":[{"id":7,"field_id":1,"value":"Updated text curl2"},{"id":13,"field_id":4,"field_parent_id":2,"value":"4"}],"permissions":[{"id":1,"permission":1,"accessor_id":5,"accessor_type":"User"}]}}'

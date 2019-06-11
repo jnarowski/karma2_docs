@@ -1,5 +1,41 @@
 # Emails
 
+## Send an email
+
+```shell
+curl "https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages.json?api_token=oGscoGFsdS54mProUdDz \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"message":{"to":[{"id":5,"type":"Contact","label":"John Smith","email":"john.smith@gmail.com"}],"authorization_id":1,"subject":"My subject","body":"<div>My HTML body</div>"}}'
+```
+
+This endpoint sends an email.
+
+### HTTP Request
+
+`POST https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_draft.json`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+api_token | The token to authenticate request
+
+### Request Payload
+
+Parameter | Description
+--------- | -----------
+message[to] | array of 'to' recipients i.e. <br>`{`<br>&nbsp; `"label": "John Smith",`<br>&nbsp; `"type":"Contact",`<br>&nbsp; `"email":"john.smith@gmail.com"`<br>&nbsp; `"id":5`<br>`}`
+message[authorization_id] | authorization id of sender (user)
+message[subject] | Email subject
+message[body] | Email body
+
+### Response Code
+
+Code | Description
+---- | -----------
+204 |  No content
+
 ## Create an Email Draft
 
 ```shell
@@ -35,6 +71,8 @@ curl "https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/create_dra
   "attachments":[]
 }
 ```
+
+This endpoint creates an email draft
 
 ### HTTP Request
 
@@ -138,7 +176,7 @@ Code | Description
 ---- | -----------
 204 |  No content
 
-## Delete a Note (History)
+## Delete an Email Draft
 
 ```shell
 curl "https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?api_token=oGscoGFsdS54mProUdDz"
@@ -146,7 +184,7 @@ curl "https://app.karmacrm.com/api/v3/mailman_nylas/outgoing/messages/172.json?a
   -H "Content-Type: application/json"
 ```
 
-This endpoint deletes a specific contact.
+This endpoint deletes an email draft.
 
 ### HTTP Request
 
