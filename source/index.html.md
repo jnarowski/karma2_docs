@@ -11,6 +11,7 @@ includes:
   - authentication
   - authorizations
   - contacts
+  - companies
   - activities
   - histories
   - custom_fields

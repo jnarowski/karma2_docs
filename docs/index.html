@@ -258,6 +258,26 @@
               </ul>
           </li>
           <li>
+            <a href="#companies" class="toc-h1 toc-link" data-title="Companies">Companies</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-companies" class="toc-h2 toc-link" data-title="Get All Companies">Get All Companies</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-company" class="toc-h2 toc-link" data-title="Get a Specific Company">Get a Specific Company</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-company" class="toc-h2 toc-link" data-title="Create a Company">Create a Company</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-company" class="toc-h2 toc-link" data-title="Update a Company">Update a Company</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-company" class="toc-h2 toc-link" data-title="Delete a Company">Delete a Company</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#activities" class="toc-h1 toc-link" data-title="Activities">Activities</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1284,6 +1304,535 @@
 <p>This endpoint deletes a specific contact.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes-2'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h1 id='companies'>Companies</h1><h2 id='get-all-companies'>Get All Companies</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/companies.json?api_token=oGscoGFsdS54mProUdDz&amp;page=3&amp;filters%5Bcontact_stage_id%5D=13&amp;sorts%5Bfirst_name%5D=asc"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my company name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"background"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my background"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referral_source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/company_thumb.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"local"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"new"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-18T16:18:03Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-18T16:18:03Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my.company@email.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"secondary_email_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my.company2@email.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"secondary_email_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompany.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"secondary_website_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompanywork.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"secondary_website_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-456-7890"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321-654-0987"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 A St"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"social_accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompany"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompany"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all companies.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/contacts.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Gets a specific page of contacts</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-company'>Get a Specific Company</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/companies/10.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my company name"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"background"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my background"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/company_thumb.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"referral_source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"local"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"new"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-18T16:18:03Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-18T16:18:03Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my.company@email.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my.company2@email.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompany.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"website_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompanywork.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"website_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-456-7890"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321-654-0987"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"school"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 A St"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1811</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"social_accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompany"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompany"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"field_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific company.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to retrieve</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-company'>Create a Company</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/companies.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"company":{"name":"My Company Name","background":"My Company Background","tags":["local","support"],"referral_source_id":7,"user_id":4,"emails":[{"email":"email@mycompany.com","label":"work","email_type_id":1,"position":0},{"email":"email2@mycompany.com","label":"support","email_type_id":1,"position":1}],"social_accounts":[{"name":"mycompany","social_account_type_id":"1","position":0},{"name":"mycompany","social_account_type_id":"2","position":1}],"phone_numbers":[{"number":"123-456-7890","label":"work","phone_number_type_id":1,"position":0},{"number":"321-654-0987","label":"mobile","phone_number_type_id":2,"position":1}],"addresses":[{"street":"123 A St.","city":"City","state":"ST","postal_code":"12345","country":"US","label":"work","address_type_id":1,"position":3002},{"street":"456 B St.","city":"City","state":"ST","postal_code":"12345","country":"","label":"support","address_type_id":3,"position":3008}],"websites":[{"url":"mycompanywebsite.com","label":"work","website_type_id":1,"position":0},{"url":"mycompanysupportwebsite.com","label":"support","website_type_id":1,"position":1}],"permissions":[{"accessor_id":"4","accessor_type":"User","permission":"1"},{"accessor_id":"5","accessor_type":"User","permission":"0"}],"private":true,"notify_user":false}}'</span>
+</code></pre>
+<blockquote>
+<p>Successful contact creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"My Company Name"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"background"</span><span class="p">:</span><span class="s2">"My Company Background"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"avatar_file_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private_notes"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"referral_source_id"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"industry_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:[</span><span class="s2">"local"</span><span class="p">,</span><span class="s2">"support"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-06-19T14:28:49Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-06-19T14:28:49Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"emails"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"email@mycompany.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"email2@mycompany.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"websites"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"mycompanywebsite.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"website_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"mycompanysupportwebsite.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"website_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"phone_numbers"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"123-456-7890"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"321-654-0987"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"addresses"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="s2">"123 A St."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="s2">"456 B St."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address_type_id"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"social_accounts"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"mycompany"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"mycompany"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"social_account_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"field_values"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"permissions"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_type"</span><span class="p">:</span><span class="s2">"User"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"permission"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"accessor_type"</span><span class="p">:</span><span class="s2">"User"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v3/companies.json</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>company[name]</td>
+<td>Company&#39;s name</td>
+</tr>
+<tr>
+<td>company[background]</td>
+<td>Company&#39;s background info</td>
+</tr>
+<tr>
+<td>company[tags]</td>
+<td>array of company&#39;s tags i.e. <code>[&quot;development&quot;,&quot;usa&quot;]</code></td>
+</tr>
+<tr>
+<td>company[referral_source_id]</td>
+<td>ID of company&#39;s referral source</td>
+</tr>
+<tr>
+<td>company[user_id]</td>
+<td>ID for company&#39;s assigned user</td>
+</tr>
+<tr>
+<td>company[addresses]</td>
+<td>array of company&#39;s addresses, i.e. <br><code>{</code><br>&nbsp; <code>&quot;street&quot;:&quot;South St&quot;,</code><br>&nbsp; <code>&quot;city&quot;:&quot;Chicago&quot;,</code><br>&nbsp; <code>&quot;state&quot;:&quot;Illinois&quot;,</code><br>&nbsp; <code>&quot;country&quot;:&quot;USA&quot;,</code><br>&nbsp; <code>&quot;postal_code&quot;:&quot;60667&quot;,</code><br>&nbsp; <code>&quot;address_type_id&quot;: 2,</code><br>&nbsp; <code>&quot;label&quot;: &quot;New Custom Label&quot;,</code><br>&nbsp; <code>&quot;position&quot;: 0,</code> (optional: adds custom label)<br><code>}</code></td>
+</tr>
+<tr>
+<td>company[phone_numbers]</td>
+<td>array of company&#39;s phone_numbers, i.e. (with optional custom label)<br> <code>{&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2,&quot;label&quot;:&quot;New Custom Label&quot;,&quot;position&quot;:0}</code></td>
+</tr>
+<tr>
+<td>company[emails]</td>
+<td>array of company&#39;s emails, i.e. (with optional custom label)<br> <code>{&quot;email&quot;:&quot;john.smith@example.com&quot;,&quot;email_type_id&quot;:2,&quot;label&quot;:&quot;New Custom Label&quot;,&quot;position&quot;:0}</code></td>
+</tr>
+<tr>
+<td>company[social_accounts]</td>
+<td>array of company&#39;s social accounts, i.e.<br> <code>{&quot;name&quot;:&quot;john_smith&quot;,&quot;social_account_type_id&quot;:1,&quot;position&quot;:0}</code></td>
+</tr>
+<tr>
+<td>company[websites]</td>
+<td>array of contact&#39;s websites, i.e. (with optional custom label)<br> <code>{&quot;url&quot;:&quot;example.com&quot;,&quot;website_type_id&quot;:1,&quot;label&quot;:&quot;New Custom Label&quot;,&quot;position&quot;:0}</code></td>
+</tr>
+<tr>
+<td>company[field_values]</td>
+<td>array of company&#39;s custom field values, i.e <br><code>{&quot;field_id&quot;:1,&quot;value&quot;:&quot;custom info&quot;}</code> <br><code>{&quot;value&quot;:&quot;5&quot;,&quot;field_id&quot;:5,&quot;field_parent_id&quot;:2}</code> (with parent field)</td>
+</tr>
+<tr>
+<td>company[permissions]</td>
+<td>array of permission granting access to company&#39;s info i.e.<br><code>{</code><br>&nbsp; <code>&quot;accessor_id&quot;: 4,</code><br>&nbsp; <code>&quot;accessor_type&quot;: &quot;User&quot;,</code><br>&nbsp; <code>&quot;permission&quot;: 1</code><br>}</td>
+</tr>
+<tr>
+<td>company[private]</td>
+<td>boolean value for whether company permissions is private</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-company'>Update a Company</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts/13.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"id":13,"company":{"name":"My Company Name","background":"My Company Background","tags":["local","support"],"referral_source_id":7,"user_id":4,"emails":[{"id":34,"email":"email@mycompany.com","label":"work","email_type_id":1,"_destroy":false,"position":0},{"id":35,"email":"email2@mycompany.com","label":"support","email_type_id":1,"_destroy":false,"position":1}],"social_accounts":[{"id":7,"name":"mycompany","social_account_type_id":"1","_destroy":false,"position":0},{"id":8,"name":"mycompany","social_account_type_id":"2","_destroy":false,"position":1}],"phone_numbers":[{"id":13,"number":"123-456-7890","label":"work","phone_number_type_id":1,"_destroy":false,"position":0},{"id":14,"number":"321-654-0987","label":"mobile","phone_number_type_id":2,"_destroy":false,"position":1}],"addresses":[{"id":12,"street":"123 A St.","city":"City","state":"ST","postal_code":"12345","country":"US","label":"work","address_type_id":1,"_destroy":false,"position":1152},{"id":13,"street":"456 B St.","city":"City","state":"ST","postal_code":"12345","country":"","label":"support","address_type_id":3,"_destroy":false,"position":1158}],"websites":[{"id":16,"url":"mycompanywebsite.com","label":"work","website_type_id":1,"_destroy":false,"position":0},{"id":17,"url":"mycompanysupportwebsite.com","label":"support","website_type_id":1,"_destroy":false,"position":1}],"permissions":[{"id":4,"accessor_id":4,"accessor_type":"User","permission":"1"},{"id":5,"accessor_id":5,"accessor_type":"User","permission":"0"}],"private":true,"field_values":[{"value":"custom text field value","field_id":52}],"notify_user":false}}'</span>
+</code></pre>
+<p>This endpoint updates a specific company.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://app.karmacrm.com/api/v3/companies/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the contact to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>company[name]</td>
+<td>Company&#39;s name</td>
+</tr>
+<tr>
+<td>company[background]</td>
+<td>Company&#39;s background info</td>
+</tr>
+<tr>
+<td>company[tags]</td>
+<td>array of company&#39;s tags i.e. <code>[&quot;development&quot;,&quot;usa&quot;]</code></td>
+</tr>
+<tr>
+<td>company[referral_source_id]</td>
+<td>ID of company&#39;s referral source</td>
+</tr>
+<tr>
+<td>company[user_id]</td>
+<td>ID for company&#39;s assigned user</td>
+</tr>
+<tr>
+<td>company[addresses]</td>
+<td>array of company&#39;s addresses i.e. <br><code>{</code><br>&nbsp; <code>&quot;id&quot;:4,</code><br>&nbsp; <code>&quot;street&quot;:&quot;South St&quot;,</code><br>&nbsp; <code>&quot;city&quot;:&quot;Chicago&quot;,</code><br>&nbsp; <code>&quot;state&quot;:&quot;Illinois&quot;,</code><br>&nbsp; <code>&quot;country&quot;:&quot;USA&quot;,</code><br>&nbsp; <code>&quot;postal_code&quot;:&quot;60667&quot;,</code><br>&nbsp; <code>&quot;address_type_id&quot;: 2,</code><br>&nbsp; <code>&quot;label&quot;: &quot;New Custom Label&quot;,</code> (optional: adds custom label)<br>&nbsp; <code>&quot;_destroy&quot;: true</code> (optional: deletes address)<br><code>}</code><br></td>
+</tr>
+<tr>
+<td>company[phone_numbers]</td>
+<td>array of company&#39;s phone_numbers, i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:6,&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2}</code><br><strong>add new:</strong><br> <code>{&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2,&quot;label&quot;:&quot;New Custom Label&quot;}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:7,&quot;number&quot;:&quot;+7 902 4321 2123&quot;,&quot;phone_number_type_id&quot;:2, &quot;_destroy&quot;:true}</code></td>
+</tr>
+<tr>
+<td>company[emails]</td>
+<td>array of company&#39;s emails, i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:12,&quot;email&quot;:&quot;update.email@example.com&quot;,&quot;email_type_id&quot;:2}</code><br><strong>add new:</strong><br> <code>{&quot;email&quot;:&quot;add.email  @example.com&quot;,&quot;email_type_id&quot;:2,&quot;label&quot;:&quot;New Label&quot;}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:14,&quot;email&quot;:&quot;delete.email@example.com&quot;,&quot;email_type_id&quot;:2,&quot;_destroy&quot;:true}</code></td>
+</tr>
+<tr>
+<td>company[social_accounts]</td>
+<td>array of company&#39;s social accounts, i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:3,&quot;name&quot;:&quot;update name&quot;,&quot;social_account_type_id&quot;:1}</code><br><strong>add new:</strong><br> <code>{name&quot;:&quot;new name&quot;,&quot;social_account_type_id&quot;:3}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:3,&quot;name&quot;:&quot;delete name&quot;,&quot;social_account_type_id&quot;:1,&quot;_delete&quot;:true}</code></td>
+</tr>
+<tr>
+<td>company[websites]</td>
+<td>array of company&#39;s websites, i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:4,&quot;url&quot;:&quot;update.com&quot;,&quot;website_type_id&quot;:2}</code><br><strong>add new:</strong><br> <code>{&quot;url&quot;:&quot;addnew.com&quot;,&quot;website_type_id&quot;:1, &#39;New Label&#39;}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:6,&quot;url&quot;:&quot;delete.com&quot;,&quot;website_type_id&quot;:1, &quot;_destroy&quot;:true}</code></td>
+</tr>
+<tr>
+<td>company[field_values]</td>
+<td>array of company&#39;s custom field values, i.e<br><strong>update:</strong><br> <code>{&quot;id&quot;:7,&quot;field_id&quot;:1,&quot;value&quot;:&quot;update value for text field&quot;}</code><br><strong>add/check new (checkbox choice):</strong><br> <code>{&quot;value&quot;:&quot;5&quot;,&quot;field_id&quot;:5,&quot;field_parent_id&quot;:2}</code><br></td>
+</tr>
+<tr>
+<td>company[permissions]</td>
+<td>array of permission granting access to company&#39;s info i.e.<br><code>{</code><br>&nbsp; <code>&quot;id&quot;:1,</code><br>&nbsp; <code>&quot;accessor_id&quot;: 4,</code><br>&nbsp; <code>&quot;accessor_type&quot;: &quot;User&quot;,</code><br>&nbsp; <code>&quot;permission&quot;: 1</code><br>&nbsp; <code>&quot;_destroy&quot;: true</code> (optional: deletes permission)<br><code>}</code></td>
+</tr>
+</tbody></table>
+<h3 id='return-codes'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-company'>Delete a Company</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/companies/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<p>This endpoint deletes a specific company.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://app.karmacrm.com/api/v3/companies/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
