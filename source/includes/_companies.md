@@ -94,13 +94,13 @@ curl "https://app.karmacrm.com/api/v3/companies.json?api_token=oGscoGFsdS54mProU
 This endpoint retrieves all companies.
 
 ### HTTP Request
-`GET https://app.karmacrm.com/api/v3/contacts.json`
+`GET https://app.karmacrm.com/api/v3/companies.json`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-page | Gets a specific page of contacts
+page | Gets a specific page of companies
 api_token | The token to authenticate request
 
 
@@ -209,13 +209,13 @@ This endpoint retrieves a specific company.
 
 ### HTTP Request
 
-`GET https://app.karmacrm.com/api/v3/contacts/<ID>.json`
+`GET https://app.karmacrm.com/api/v3/companies/<ID>.json`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the contact to retrieve
+ID | The ID of the company to retrieve
 api_token | The token to authenticate request
 
 ## Create a Company
@@ -226,7 +226,7 @@ curl "https://app.karmacrm.com/api/v3/companies.json?api_token=oGscoGFsdS54mProU
   -H "Content-Type: application/json" \
   -d '{"company":{"name":"My Company Name","background":"My Company Background","tags":["local","support"],"referral_source_id":7,"user_id":4,"emails":[{"email":"email@mycompany.com","label":"work","email_type_id":1,"position":0},{"email":"email2@mycompany.com","label":"support","email_type_id":1,"position":1}],"social_accounts":[{"name":"mycompany","social_account_type_id":"1","position":0},{"name":"mycompany","social_account_type_id":"2","position":1}],"phone_numbers":[{"number":"123-456-7890","label":"work","phone_number_type_id":1,"position":0},{"number":"321-654-0987","label":"mobile","phone_number_type_id":2,"position":1}],"addresses":[{"street":"123 A St.","city":"City","state":"ST","postal_code":"12345","country":"US","label":"work","address_type_id":1,"position":3002},{"street":"456 B St.","city":"City","state":"ST","postal_code":"12345","country":"","label":"support","address_type_id":3,"position":3008}],"websites":[{"url":"mycompanywebsite.com","label":"work","website_type_id":1,"position":0},{"url":"mycompanysupportwebsite.com","label":"support","website_type_id":1,"position":1}],"permissions":[{"accessor_id":"4","accessor_type":"User","permission":"1"},{"accessor_id":"5","accessor_type":"User","permission":"0"}],"private":true,"notify_user":false}}'
 ```
-> Successful contact creation response:
+> Successful company creation response:
 
 ```json
 {
@@ -353,7 +353,7 @@ company[addresses] | array of company's addresses, i.e. <br>`{`<br>&nbsp; `"stre
 company[phone_numbers] | array of company's phone_numbers, i.e. (with optional custom label)<br> `{"number":"+7 902 4321 2123","phone_number_type_id":2,"label":"New Custom Label","position":0}`
 company[emails] | array of company's emails, i.e. (with optional custom label)<br> `{"email":"john.smith@example.com","email_type_id":2,"label":"New Custom Label","position":0}`
 company[social_accounts] | array of company's social accounts, i.e.<br> `{"name":"john_smith","social_account_type_id":1,"position":0}`
-company[websites] | array of contact's websites, i.e. (with optional custom label)<br> `{"url":"example.com","website_type_id":1,"label":"New Custom Label","position":0}`
+company[websites] | array of company's websites, i.e. (with optional custom label)<br> `{"url":"example.com","website_type_id":1,"label":"New Custom Label","position":0}`
 company[field_values] | array of company's custom field values, i.e <br>`{"field_id":1,"value":"custom info"}` <br>`{"value":"5","field_id":5,"field_parent_id":2}` (with parent field)
 company[permissions] | array of permission granting access to company's info i.e.<br>`{`<br>&nbsp; `"accessor_id": 4,`<br>&nbsp; `"accessor_type": "User",`<br>&nbsp; `"permission": 1`<br>}
 company[private] | boolean value for whether company permissions is private
@@ -361,7 +361,7 @@ company[private] | boolean value for whether company permissions is private
 ## Update a Company
 
 ```shell
-curl "https://app.karmacrm.com/api/v3/contacts/13.json?api_token=oGscoGFsdS54mProUdDz" \
+curl "https://app.karmacrm.com/api/v3/companies/13.json?api_token=oGscoGFsdS54mProUdDz" \
   -X PUT \
   -H "Content-Type: application/json" \
   -d '{"id":13,"company":{"name":"My Company Name","background":"My Company Background","tags":["local","support"],"referral_source_id":7,"user_id":4,"emails":[{"id":34,"email":"email@mycompany.com","label":"work","email_type_id":1,"_destroy":false,"position":0},{"id":35,"email":"email2@mycompany.com","label":"support","email_type_id":1,"_destroy":false,"position":1}],"social_accounts":[{"id":7,"name":"mycompany","social_account_type_id":"1","_destroy":false,"position":0},{"id":8,"name":"mycompany","social_account_type_id":"2","_destroy":false,"position":1}],"phone_numbers":[{"id":13,"number":"123-456-7890","label":"work","phone_number_type_id":1,"_destroy":false,"position":0},{"id":14,"number":"321-654-0987","label":"mobile","phone_number_type_id":2,"_destroy":false,"position":1}],"addresses":[{"id":12,"street":"123 A St.","city":"City","state":"ST","postal_code":"12345","country":"US","label":"work","address_type_id":1,"_destroy":false,"position":1152},{"id":13,"street":"456 B St.","city":"City","state":"ST","postal_code":"12345","country":"","label":"support","address_type_id":3,"_destroy":false,"position":1158}],"websites":[{"id":16,"url":"mycompanywebsite.com","label":"work","website_type_id":1,"_destroy":false,"position":0},{"id":17,"url":"mycompanysupportwebsite.com","label":"support","website_type_id":1,"_destroy":false,"position":1}],"permissions":[{"id":4,"accessor_id":4,"accessor_type":"User","permission":"1"},{"id":5,"accessor_id":5,"accessor_type":"User","permission":"0"}],"private":true,"field_values":[{"value":"custom text field value","field_id":52}],"notify_user":false}}'
@@ -377,7 +377,7 @@ This endpoint updates a specific company.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the contact to delete
+ID | The ID of the company to update
 api_token | The token to authenticate request
 
 ### Request Payload
@@ -406,7 +406,7 @@ Code | Description
 ## Delete a Company
 
 ```shell
-curl "https://app.karmacrm.com/api/v3/companies/27.json?api_token=oGscoGFsdS54mProUdDz"
+curl "https://app.karmacrm.com/api/v2/companies/27.json?api_token=oGscoGFsdS54mProUdDz"
   -X DELETE \
   -H "Content-Type: application/json"
 ```
@@ -415,13 +415,13 @@ This endpoint deletes a specific company.
 
 ### HTTP Request
 
-`DELETE https://app.karmacrm.com/api/v3/companies/<ID>.json`
+`DELETE https://app.karmacrm.com/api/v2/companies/<ID>.json`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the contact to delete
+ID | The ID of the company to delete
 api_token | The token to authenticate request
 
 ### Return Codes

@@ -434,7 +434,7 @@ This endpoint updates a specific contact.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the contact to delete
+ID | The ID of the contact to update
 api_token | The token to authenticate request
 
 ### Request Payload

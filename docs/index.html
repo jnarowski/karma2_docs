@@ -286,6 +286,38 @@
                   <li>
                     <a href="#get-related-activities-for-a-contact" class="toc-h2 toc-link" data-title="Get Related Activities (for a Contact)">Get Related Activities (for a Contact)</a>
                   </li>
+                  <li>
+                    <a href="#get-a-specific-activity" class="toc-h2 toc-link" data-title="Get a Specific Activity">Get a Specific Activity</a>
+                  </li>
+                  <li>
+                    <a href="#create-an-activity" class="toc-h2 toc-link" data-title="Create an Activity">Create an Activity</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-activity" class="toc-h2 toc-link" data-title="Update an Activity">Update an Activity</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-activity" class="toc-h2 toc-link" data-title="Delete a Activity">Delete a Activity</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#deals" class="toc-h1 toc-link" data-title="Deals">Deals</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-deals" class="toc-h2 toc-link" data-title="Get All Deals">Get All Deals</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-deal" class="toc-h2 toc-link" data-title="Get a Specific Deal">Get a Specific Deal</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-deal" class="toc-h2 toc-link" data-title="Create a Deal">Create a Deal</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-deal" class="toc-h2 toc-link" data-title="Update a Deal">Update a Deal</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-deal" class="toc-h2 toc-link" data-title="Delete a Deal">Delete a Deal</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1190,7 +1222,7 @@
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the contact to delete</td>
+<td>The ID of the contact to update</td>
 </tr>
 <tr>
 <td>api_token</td>
@@ -1420,7 +1452,7 @@
 </span></code></pre>
 <p>This endpoint retrieves all companies.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://app.karmacrm.com/api/v3/contacts.json</code></p>
+<p><code>GET https://app.karmacrm.com/api/v3/companies.json</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1430,7 +1462,7 @@
 </thead><tbody>
 <tr>
 <td>page</td>
-<td>Gets a specific page of contacts</td>
+<td>Gets a specific page of companies</td>
 </tr>
 <tr>
 <td>api_token</td>
@@ -1536,7 +1568,7 @@
 </span></code></pre>
 <p>This endpoint retrieves a specific company.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://app.karmacrm.com/api/v3/contacts/&lt;ID&gt;.json</code></p>
+<p><code>GET https://app.karmacrm.com/api/v3/companies/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1546,7 +1578,7 @@
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the contact to retrieve</td>
+<td>The ID of the company to retrieve</td>
 </tr>
 <tr>
 <td>api_token</td>
@@ -1559,7 +1591,7 @@
   -d <span class="s1">'{"company":{"name":"My Company Name","background":"My Company Background","tags":["local","support"],"referral_source_id":7,"user_id":4,"emails":[{"email":"email@mycompany.com","label":"work","email_type_id":1,"position":0},{"email":"email2@mycompany.com","label":"support","email_type_id":1,"position":1}],"social_accounts":[{"name":"mycompany","social_account_type_id":"1","position":0},{"name":"mycompany","social_account_type_id":"2","position":1}],"phone_numbers":[{"number":"123-456-7890","label":"work","phone_number_type_id":1,"position":0},{"number":"321-654-0987","label":"mobile","phone_number_type_id":2,"position":1}],"addresses":[{"street":"123 A St.","city":"City","state":"ST","postal_code":"12345","country":"US","label":"work","address_type_id":1,"position":3002},{"street":"456 B St.","city":"City","state":"ST","postal_code":"12345","country":"","label":"support","address_type_id":3,"position":3008}],"websites":[{"url":"mycompanywebsite.com","label":"work","website_type_id":1,"position":0},{"url":"mycompanysupportwebsite.com","label":"support","website_type_id":1,"position":1}],"permissions":[{"accessor_id":"4","accessor_type":"User","permission":"1"},{"accessor_id":"5","accessor_type":"User","permission":"0"}],"private":true,"notify_user":false}}'</span>
 </code></pre>
 <blockquote>
-<p>Successful contact creation response:</p>
+<p>Successful company creation response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
@@ -1719,7 +1751,7 @@
 </tr>
 <tr>
 <td>company[websites]</td>
-<td>array of contact&#39;s websites, i.e. (with optional custom label)<br> <code>{&quot;url&quot;:&quot;example.com&quot;,&quot;website_type_id&quot;:1,&quot;label&quot;:&quot;New Custom Label&quot;,&quot;position&quot;:0}</code></td>
+<td>array of company&#39;s websites, i.e. (with optional custom label)<br> <code>{&quot;url&quot;:&quot;example.com&quot;,&quot;website_type_id&quot;:1,&quot;label&quot;:&quot;New Custom Label&quot;,&quot;position&quot;:0}</code></td>
 </tr>
 <tr>
 <td>company[field_values]</td>
@@ -1734,7 +1766,7 @@
 <td>boolean value for whether company permissions is private</td>
 </tr>
 </tbody></table>
-<h2 id='update-a-company'>Update a Company</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/contacts/13.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+<h2 id='update-a-company'>Update a Company</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/companies/13.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{"id":13,"company":{"name":"My Company Name","background":"My Company Background","tags":["local","support"],"referral_source_id":7,"user_id":4,"emails":[{"id":34,"email":"email@mycompany.com","label":"work","email_type_id":1,"_destroy":false,"position":0},{"id":35,"email":"email2@mycompany.com","label":"support","email_type_id":1,"_destroy":false,"position":1}],"social_accounts":[{"id":7,"name":"mycompany","social_account_type_id":"1","_destroy":false,"position":0},{"id":8,"name":"mycompany","social_account_type_id":"2","_destroy":false,"position":1}],"phone_numbers":[{"id":13,"number":"123-456-7890","label":"work","phone_number_type_id":1,"_destroy":false,"position":0},{"id":14,"number":"321-654-0987","label":"mobile","phone_number_type_id":2,"_destroy":false,"position":1}],"addresses":[{"id":12,"street":"123 A St.","city":"City","state":"ST","postal_code":"12345","country":"US","label":"work","address_type_id":1,"_destroy":false,"position":1152},{"id":13,"street":"456 B St.","city":"City","state":"ST","postal_code":"12345","country":"","label":"support","address_type_id":3,"_destroy":false,"position":1158}],"websites":[{"id":16,"url":"mycompanywebsite.com","label":"work","website_type_id":1,"_destroy":false,"position":0},{"id":17,"url":"mycompanysupportwebsite.com","label":"support","website_type_id":1,"_destroy":false,"position":1}],"permissions":[{"id":4,"accessor_id":4,"accessor_type":"User","permission":"1"},{"id":5,"accessor_id":5,"accessor_type":"User","permission":"0"}],"private":true,"field_values":[{"value":"custom text field value","field_id":52}],"notify_user":false}}'</span>
@@ -1751,7 +1783,7 @@
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the contact to delete</td>
+<td>The ID of the company to update</td>
 </tr>
 <tr>
 <td>api_token</td>
@@ -1826,13 +1858,13 @@
 <td>No content</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-company'>Delete a Company</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/companies/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
+<h2 id='delete-a-company'>Delete a Company</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/companies/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
   -X DELETE <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <p>This endpoint deletes a specific company.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE https://app.karmacrm.com/api/v3/companies/&lt;ID&gt;.json</code></p>
+<p><code>DELETE https://app.karmacrm.com/api/v2/companies/&lt;ID&gt;.json</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1842,7 +1874,7 @@
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the contact to delete</td>
+<td>The ID of the company to delete</td>
 </tr>
 <tr>
 <td>api_token</td>
@@ -1905,11 +1937,11 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 </thead><tbody>
 <tr>
 <td>page</td>
-<td>Gets a specific page of contacts</td>
+<td>Gets a specific page of activities</td>
 </tr>
 <tr>
 <td>per_page</td>
-<td>Number of contacts per page</td>
+<td>Number of activities per page</td>
 </tr>
 <tr>
 <td>api_token</td>
@@ -2006,11 +2038,11 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 </thead><tbody>
 <tr>
 <td>page</td>
-<td>Gets a specific page of contacts</td>
+<td>Gets a specific page of activities</td>
 </tr>
 <tr>
 <td>per_page</td>
-<td>Number of contacts per page</td>
+<td>Number of activities per page</td>
 </tr>
 <tr>
 <td>api_token</td>
@@ -2023,6 +2055,715 @@ https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz&a
 <tr>
 <td>record_id</td>
 <td>Record ID</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-activity'>Get a Specific Activity</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"
+https://app.karmacrm.com/api/v3/activities/48.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Activity Body"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Activity Notes"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"todo_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"activity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"where"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"calendar_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-20T22:49:55Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-20T22:49:55Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reminder_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minutes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_increment"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reminder_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"days"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_increment"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific activity.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/activities/related.json</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h2 id='create-an-activity'>Create an Activity</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"activity":{"body":"My Body","where":"","description":"My Notes","all_day":true,"user_id":36192,"todo_category_id":140844,"reminders":[{"reminder_type_id":"2","interval":"minutes","time_increment":"15"}],"participants":[{"participater_id":"10662866","participater_type":"Contact"}],"recurrence":[],"due_at":"2019-06-21 6:00:00Z","end_at":null,"calendar_id":53518,"complete":false}}'</span>
+</code></pre>
+<blockquote>
+<p>Successful activity creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2674024</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="s2">"My Body"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"My Notes"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"todo_category_id"</span><span class="p">:</span><span class="mi">140844</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">36192</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="mi">13346</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="mi">36192</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"all_day"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"recurrence"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"where"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"calendar_id"</span><span class="p">:</span><span class="mi">53518</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"complete"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_at"</span><span class="p">:</span><span class="s2">"2019-06-21T06:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-06-21T17:33:12Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-06-21T17:33:12Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reminders"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1767753</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reminder_type_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"interval"</span><span class="p">:</span><span class="s2">"minutes"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_increment"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"participants"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">18861339</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participater_type"</span><span class="p">:</span><span class="s2">"Contact"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participater_id"</span><span class="p">:</span><span class="mi">10662866</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"John Smith"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v3/activities.json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>activity[body]</td>
+<td>Activity&#39;s body</td>
+</tr>
+<tr>
+<td>activity[where]</td>
+<td>Activity&#39;s location,</td>
+</tr>
+<tr>
+<td>activity[description]</td>
+<td>Activity&#39;s notes,</td>
+</tr>
+<tr>
+<td>activity[all_day]</td>
+<td>Boolean value for if the activity is all day</td>
+</tr>
+<tr>
+<td>activity[user_id]</td>
+<td>ID of activity&#39;s assigned user,</td>
+</tr>
+<tr>
+<td>activity[todo_category_id]</td>
+<td>ID of activity&#39;s todo category,</td>
+</tr>
+<tr>
+<td>activity[reminders]</td>
+<td>an array of reminder objects i.e. <br><code>{&quot;reminder_type_id&quot;:&quot;3&quot;,&quot;interval&quot;:&quot;minutes&quot;,&quot;time_increment&quot;:&quot;15&quot;}</code></td>
+</tr>
+<tr>
+<td>activity[participants]</td>
+<td>an array of participant objects i.e.<br><code>{&quot;participater_id&quot;:36348,&quot;participater_type&quot;:&quot;User&quot;}</code></td>
+</tr>
+<tr>
+<td>activity[due_at]</td>
+<td>Activity&#39;s start time / due time</td>
+</tr>
+<tr>
+<td>activity[end_at]</td>
+<td>Activity&#39;s end time,</td>
+</tr>
+<tr>
+<td>activity[calendar_id]</td>
+<td>ID of calendar the activity belongs to,</td>
+</tr>
+<tr>
+<td>activity[complete]</td>
+<td>Boolean value for if the activity is completed,</td>
+</tr>
+<tr>
+<td>activity[completed_at]</td>
+<td>Activity&#39;s completion time if completed</td>
+</tr>
+</tbody></table>
+<h2 id='update-an-activity'>Update an Activity</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/activities/49.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"id":49,"activity":{"body":"My Body","where":"","description":"My Notes","all_day":false,"user_id":36192,"todo_category_id":140847,"reminders":[{"id":1767725,"_destroy":false,"reminder_type_id":"2","interval":"minutes","time_increment":"15"}],"participants":[{"id":18861204,"participater_id":36192,"participater_type":"User","_destroy":true},{"participater_id":36348,"participater_type":"User"}],"recurrence":[],"due_at":"2019-06-21 18:30:00Z","end_at":"2019-06-21 20:00:00Z","calendar_id":53518,"complete":false}}'</span>
+</code></pre>
+<p>This endpoint updates a specific activity.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>PUT https://app.karmacrm.com/api/v3/activities/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the activity to update</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>activity[body]</td>
+<td>Activity&#39;s body</td>
+</tr>
+<tr>
+<td>activity[where]</td>
+<td>Activity&#39;s location,</td>
+</tr>
+<tr>
+<td>activity[description]</td>
+<td>Activity&#39;s notes,</td>
+</tr>
+<tr>
+<td>activity[all_day]</td>
+<td>Boolean value for if the activity is all day</td>
+</tr>
+<tr>
+<td>activity[user_id]</td>
+<td>ID of activity&#39;s assigned user,</td>
+</tr>
+<tr>
+<td>activity[todo_category_id]</td>
+<td>ID of activity&#39;s todo category,</td>
+</tr>
+<tr>
+<td>activity[reminders]</td>
+<td>an array of reminder objects i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:4,&quot;reminder_type_id&quot;:&quot;3&quot;,&quot;interval&quot;:&quot;minutes&quot;,&quot;time_increment&quot;:&quot;20&quot;}</code><br><strong>add new:</strong><br> <code>{&quot;reminder_type_id&quot;:&quot;3&quot;,&quot;interval&quot;:&quot;hours&quot;,&quot;time_increment&quot;:&quot;1&quot;}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:6,&quot;reminder_type_id&quot;:&quot;3&quot;,&quot;interval&quot;:&quot;minutes&quot;,&quot;time_increment&quot;:&quot;15&quot;,&quot;_destroy&quot;:true}</code></td>
+</tr>
+<tr>
+<td>activity[participants]</td>
+<td>an array of participant objects i.e.<br><strong>update:</strong><br> <code>{&quot;id&quot;:18,&quot;participater_id&quot;:10,&quot;participater_type&quot;:&quot;Contact&quot;,&quot;_destroy&quot;:false</code><br><strong>add new:</strong><br> <code>{&quot;participater_id&quot;:36,&quot;participater_type&quot;:&quot;User&quot;}</code><br><strong>delete:</strong><br> <code>{&quot;id&quot;:6,&quot;participater_id&quot;:23,&quot;participater_type&quot;:&quot;User&quot;,&quot;_destroy&quot;:true}</code></td>
+</tr>
+<tr>
+<td>activity[due_at]</td>
+<td>Activity&#39;s start time / due time</td>
+</tr>
+<tr>
+<td>activity[end_at]</td>
+<td>Activity&#39;s end time,</td>
+</tr>
+<tr>
+<td>activity[calendar_id]</td>
+<td>ID of calendar the activity belongs to,</td>
+</tr>
+<tr>
+<td>activity[complete]</td>
+<td>Boolean value for if the activity is completed,</td>
+</tr>
+<tr>
+<td>activity[completed_at]</td>
+<td>Activity&#39;s completion time if completed</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-activity'>Delete a Activity</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/activities/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<p>This endpoint deletes a specific activity.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>DELETE https://app.karmacrm.com/api/v3/activities/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the activity to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes-2'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h1 id='deals'>Deals</h1><h2 id='get-all-deals'>Get All Deals</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/deals.json?api_token=oGscoGFsdS54mProUdDz&amp;page=3&amp;since=2019-06-02"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deal Title"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-19T15:58:33Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-19T16:15:45Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Text Field Value"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deal Title Two"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-19T16:16:20Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-19T16:16:20Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Text Field Value Two"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all deals.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/deals.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Gets a specific page of deals</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+<tr>
+<td>since</td>
+<td>Filters deals after a specified date</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-deal'>Get a Specific Deal</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/deals/20.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deal Title"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deal Description"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deal_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"due_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"stages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Won"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lost"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holding"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sent"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-19"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Changed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"deal_syncs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"tag_list"</span><span class="p">:</span><span class="w"> </span><span class="s2">"local,support"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fred"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/person_thumb.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"social_accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"contact_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-19T15:58:33Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-19T16:15:45Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"field_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Text Field Value"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"important_dates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-19"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific deal.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/deals/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the deal to retrieve</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-deal'>Create a Deal</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/deals.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"deal":{"name":"Deal Title","contact_id":5,"company_id":7,"deal_stage_id":15,"probability":18,"price":10,"currency":"USD","description":"Deal Description","tags":["local","support"],"user_id":4,"private":false,"field_values":[{"value":"Custom Text Field Value","field_id":53}],"due_on":"2019-06-30"}}'</span>
+</code></pre>
+<blockquote>
+<p>Successful deal creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Deal Title"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Deal Description"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deal_stage_id"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contact_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"company_id"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"organization_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by_id"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"due_on"</span><span class="p">:</span><span class="s2">"2019-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"probability"</span><span class="p">:</span><span class="mf">18.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:[</span><span class="s2">"local"</span><span class="p">,</span><span class="s2">"support"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2019-06-19T15:58:33Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2019-06-19T15:58:33Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"field_values"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_id"</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_type_id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_parent_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"Custom Text Field Value"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"important_dates"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">"2019-06-19"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"from_status_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to_status_id"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v3/deals.json</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>deal[name]</td>
+<td>Deal&#39;s name</td>
+</tr>
+<tr>
+<td>deal[probablity]</td>
+<td>Deal&#39;s probablity value</td>
+</tr>
+<tr>
+<td>deal[price]</td>
+<td>Deal&#39;s price</td>
+</tr>
+<tr>
+<td>deal[currency]</td>
+<td>Deal&#39;s currency</td>
+</tr>
+<tr>
+<td>deal[description]</td>
+<td>Deal&#39;s description</td>
+</tr>
+<tr>
+<td>deal[due_on]</td>
+<td>Date deal is due on</td>
+</tr>
+<tr>
+<td>deal[tags]</td>
+<td>array of deal&#39;s tags i.e. <code>[&quot;development&quot;,&quot;usa&quot;]</code></td>
+</tr>
+<tr>
+<td>deal[deal_stage_id]</td>
+<td>ID of deal&#39;s stage</td>
+</tr>
+<tr>
+<td>deal[contact_id]</td>
+<td>ID of contact the deal is for</td>
+</tr>
+<tr>
+<td>deal[company_id]</td>
+<td>ID of company the deal is for <br>(Note: company and contact must be associated with each other if both are provided.)</td>
+</tr>
+<tr>
+<td>deal[user_id]</td>
+<td>ID for deal&#39;s assigned user</td>
+</tr>
+<tr>
+<td>deal[field_values]</td>
+<td>array of deal&#39;s custom field values, i.e <br><code>{&quot;field_id&quot;:1,&quot;value&quot;:&quot;custom info&quot;}</code> <br><code>{&quot;value&quot;:&quot;5&quot;,&quot;field_id&quot;:5,&quot;field_parent_id&quot;:2}</code> (with parent field)</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-deal'>Update a Deal</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/deals/20.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"id":20,"deal":{"name":"Deal Title","contact_id":11,"company_id":null,"deal_stage_id":15,"probability":18,"price":10,"currency":"USD","description":"Deal Description","tags":["local","support"],"user_id":4,"private":false,"field_values":[{"id":60,"value":"Custom Text Field Value","field_id":53}],"due_on":"2019-06-30"}}'</span>
+</code></pre>
+<p>This endpoint updates a specific deal.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://app.karmacrm.com/api/v3/deals/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the deal to update</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>deal[name]</td>
+<td>Deal&#39;s name</td>
+</tr>
+<tr>
+<td>deal[probablity]</td>
+<td>Deal&#39;s probablity value</td>
+</tr>
+<tr>
+<td>deal[price]</td>
+<td>Deal&#39;s price</td>
+</tr>
+<tr>
+<td>deal[currency]</td>
+<td>Deal&#39;s currency</td>
+</tr>
+<tr>
+<td>deal[description]</td>
+<td>Deal&#39;s description</td>
+</tr>
+<tr>
+<td>deal[due_on]</td>
+<td>Date deal is due on</td>
+</tr>
+<tr>
+<td>deal[tags]</td>
+<td>array of deal&#39;s tags i.e. <code>[&quot;development&quot;,&quot;usa&quot;]</code></td>
+</tr>
+<tr>
+<td>deal[deal_stage_id]</td>
+<td>ID of deal&#39;s stage</td>
+</tr>
+<tr>
+<td>deal[contact_id]</td>
+<td>ID of contact the deal is for</td>
+</tr>
+<tr>
+<td>deal[company_id]</td>
+<td>ID of company the deal is for <br>(Note: company and contact must be associated with each other if both are provided.)</td>
+</tr>
+<tr>
+<td>deal[user_id]</td>
+<td>ID for deal&#39;s assigned user</td>
+</tr>
+<tr>
+<td>deals[field_values]</td>
+<td>array of deals&#39;s custom field values, i.e<br><strong>update:</strong><br> <code>{&quot;id&quot;:7,&quot;field_id&quot;:1,&quot;value&quot;:&quot;update value for text field&quot;}</code><br><strong>add/check new (checkbox choice):</strong><br> <code>{&quot;value&quot;:&quot;5&quot;,&quot;field_id&quot;:5,&quot;field_parent_id&quot;:2}</code><br></td>
+</tr>
+</tbody></table>
+<h3 id='return-codes'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-deal'>Delete a Deal</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/companies/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<p>This endpoint deletes a specific deal.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://app.karmacrm.com/api/v2/deals/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the deal to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes-2'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
 </tr>
 </tbody></table>
 <h1 id='histories'>Histories</h1><h2 id='get-all-histories'>Get All Histories</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/histories.json?api_token=oGscoGFsdS54mProUdDz&amp;per_page=3&amp;page=1&amp;include_external=true"</span> <span class="se">\</span>

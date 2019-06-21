@@ -13,6 +13,7 @@ includes:
   - contacts
   - companies
   - activities
+  - deals
   - histories
   - custom_fields
   - campaign_entries
