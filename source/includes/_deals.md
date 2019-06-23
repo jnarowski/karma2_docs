@@ -286,7 +286,7 @@ Code | Description
 ## Delete a Deal
 
 ```shell
-curl "https://app.karmacrm.com/api/v2/companies/27.json?api_token=oGscoGFsdS54mProUdDz"
+curl "https://app.karmacrm.com/api/v2/deals/27.json?api_token=oGscoGFsdS54mProUdDz"
   -X DELETE \
   -H "Content-Type: application/json"
 ```

@@ -301,6 +301,29 @@
               </ul>
           </li>
           <li>
+            <a href="#calendars" class="toc-h1 toc-link" data-title="Calendars">Calendars</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-calendars" class="toc-h2 toc-link" data-title="Get All Calendars">Get All Calendars</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-calendar-items" class="toc-h2 toc-link" data-title="Get All Calendar Items">Get All Calendar Items</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-calendar" class="toc-h2 toc-link" data-title="Get a Specific Calendar">Get a Specific Calendar</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-calendar" class="toc-h2 toc-link" data-title="Create a Calendar">Create a Calendar</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-calendar" class="toc-h2 toc-link" data-title="Update a Calendar">Update a Calendar</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-calendar" class="toc-h2 toc-link" data-title="Delete a Calendar">Delete a Calendar</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#deals" class="toc-h1 toc-link" data-title="Deals">Deals</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2357,6 +2380,338 @@ https://app.karmacrm.com/api/v3/activities/48.json?api_token=oGscoGFsdS54mProUdD
 <td>No content</td>
 </tr>
 </tbody></table>
+<h1 id='calendars'>Calendars</h1><h2 id='get-all-calendars'>Get All Calendars</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/activities.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My private calendar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#336699"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"calendar_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Public Calendar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#b08b59"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"calendar_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Shared Calendar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#b08b59"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"calendar_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all calendars.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/calendars.json</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-calendar-items'>Get All Calendar Items</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/calendars/items?api_token=oGscoGFsdS54mProUdDz&amp;include%5B%5D=activities&amp;start_date=2019-05-26&amp;end_date=2019-07-07&amp;calendar_ids%5B%5D=4"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deal ask"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"calendar_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"logged_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"activity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Todo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-10T20:30:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-10T20:30:00Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Body"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"calendar_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"logged_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"activity_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-21T06:00:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-21T06:00:00Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"todos"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all calendar items.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/calendars/items.json</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+<tr>
+<td>include</td>
+<td>An array of calendar item types, i.e. <code>activities</code></td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Retrieves calendar items after this date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Retrieves calendar items before this date</td>
+</tr>
+<tr>
+<td>calendar_ids</td>
+<td>An array of calendar ids that the calendar items belong to.</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-calendar'>Get a Specific Calendar</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/calendars/12.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Shared Calendar"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#b08b59"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X2ed2K8AJzDjc6zxp7Yi"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"calendar_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific calendar.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://app.karmacrm.com/api/v3/calendars/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the calendar to retrieve</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-calendar'>Create a Calendar</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/calendars.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"calendar":{"title":"My Shared Calendar","color":"#b08b59","calendar_users":[{"user_id":"36348"}],"personal":false,"public":false}}'</span>
+</code></pre>
+<blockquote>
+<p>Successful calendar creation response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Shared Calendar"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#b08b59"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X2ed2K8AJzDjc6zxp7Yi"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"personal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"calendar_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://app.karmacrm.com/api/v3/calendars.json</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>calendar[title]</td>
+<td>Calendar&#39;s title</td>
+</tr>
+<tr>
+<td>calendar[color]</td>
+<td>Calendar&#39;s color i.e. <code>#b08b59</code></td>
+</tr>
+<tr>
+<td>calendar[personal]</td>
+<td>Boolean value for calendar is private</td>
+</tr>
+<tr>
+<td>calendar[public]</td>
+<td>Boolean value for if calendar is public</td>
+</tr>
+<tr>
+<td>calendar[calendar_users]</td>
+<td>Array of user objects to share calendar with i.e. <code>{ &quot;user_id&quot;: &quot;5&quot;}</code></td>
+</tr>
+</tbody></table>
+<h2 id='update-a-calendar'>Update a Calendar</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/calendars/20.json?api_token=oGscoGFsdS54mProUdDz"</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"calendar":{"title":"My Shared Calendar","color":"#b08b59","personal":false,"public":false,"calendar_users":[{"user_id":"7"},{"user_id":"5","_destroy":true}]}}'</span>
+</code></pre>
+<p>This endpoint updates a specific calendar.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>PUT https://app.karmacrm.com/api/v3/calendars/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the calendar to update</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='request-payload-2'>Request Payload</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>calendar[title]</td>
+<td>Calendar&#39;s title</td>
+</tr>
+<tr>
+<td>calendar[color]</td>
+<td>Calendar&#39;s color i.e. <code>#b08b59</code></td>
+</tr>
+<tr>
+<td>calendar[personal]</td>
+<td>Boolean value for calendar is private</td>
+</tr>
+<tr>
+<td>calendar[public]</td>
+<td>Boolean value for if calendar is public</td>
+</tr>
+<tr>
+<td>calendar[calendar_users]</td>
+<td>Array of user objects to share calendar with i.e. <br><strong>add new:</strong><br> <code>{&quot;user_id&quot;:&quot;5&quot;}</code><br><strong>delete:</strong><br> <code>{&quot;user_id&quot;:6,&quot;_destroy&quot;:true}</code></td>
+</tr>
+</tbody></table>
+<h3 id='return-codes'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-calendar'>Delete a Calendar</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/calendars/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<p>This endpoint deletes a specific calendar.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>DELETE https://app.karmacrm.com/api/v2/calendars/&lt;ID&gt;.json</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the calendars to delete</td>
+</tr>
+<tr>
+<td>api_token</td>
+<td>The token to authenticate request</td>
+</tr>
+</tbody></table>
+<h3 id='return-codes-2'>Return Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>No content</td>
+</tr>
+</tbody></table>
 <h1 id='deals'>Deals</h1><h2 id='get-all-deals'>Get All Deals</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v3/deals.json?api_token=oGscoGFsdS54mProUdDz&amp;page=3&amp;since=2019-06-02"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
@@ -2731,7 +3086,7 @@ https://app.karmacrm.com/api/v3/activities/48.json?api_token=oGscoGFsdS54mProUdD
 <td>No content</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-deal'>Delete a Deal</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/companies/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
+<h2 id='delete-a-deal'>Delete a Deal</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://app.karmacrm.com/api/v2/deals/27.json?api_token=oGscoGFsdS54mProUdDz"</span>
   -X DELETE <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
